@@ -1,5 +1,9 @@
 # Thunder Changelong
 
+### 3/12/22
+- Thunder is now publicly available on GitHub!
+- Now when you startup Thunder, it will fetch the latest news from GitHub.
+
 ### 3/1/22
 - Viewing Thunder's documentation is now a much better experience! Now there are 2 Documentation options: "Docs (less)" and "Docs (html)". For those who like the old version better it's still there. Markdown files are rendered in HTML using `markdown`, and there's also a menu for selecting the files.
 - Because of the new feature mentioned above, there is now a new file: `viewdoc`, and a new folder called `doc` containing the html used for `viewdoc`.
