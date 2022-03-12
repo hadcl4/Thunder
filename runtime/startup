@@ -1,3 +1,5 @@
 #!/bin/bash
 cd ~/.thunder
-# wget in the future to get the latest info for Thunder
+wget https://github.com/hadcl4/Thunder/raw/main/news.txt
+rm default.txt
+mv news.txt default.txt
