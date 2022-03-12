@@ -43,3 +43,5 @@ This is a feature I've wanted for a long time (in fact it's the whole reason the
 - If the game should be ran by another executable (so games that use emulators other than mednafen can run)
 - Any arguments for the game (I haven't found any games that need this, however there most likely are games out there that do)
 - Any environment variables (for example, if a game needs Box86/64 to have Dynarec off to run correctly)
+### Add an Updater `Not Done Yet`
+Now that Thunder is on GitHub, instead of making the user manually running `git pull` and possible breaking their install in the process, it would be much more convenient to have an updater. How? Not sure yet.
