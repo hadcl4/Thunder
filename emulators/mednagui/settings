@@ -1,0 +1,9 @@
+#!/bin/bash
+# Configure Mednafen's settings.
+if [[ "$1" == "--edit" ]] ;then
+	nano ~/.mednafen/mednafen.cfg
+fi
+if [[ "$1" == "--default" ]] ;then
+	rm ~/.mednafen/mednafen.cfg
+	cp ~/Thunder/mednafen.cfg ~/.mednafen/mednafen.cfg
+fi

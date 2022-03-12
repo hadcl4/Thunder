@@ -1,0 +1,113 @@
+<div><a href="main.html">BACK TO MENU</a></div>
+<h1>Thunder Changelong</h1>
+
+<h3>3/1/22</h3>
+
+<ul>
+<li>Viewing Thunder's documentation is now a much better experience! Now there are 2 Documentation options: "Docs (less)" and "Docs (html)". For those who like the old version better it's still there. Markdown files are rendered in HTML using <code>markdown</code>, and there's also a menu for selecting the files.</li>
+<li>Because of the new feature mentioned above, there is now a new file: <code>viewdoc</code>, and a new folder called <code>doc</code> containing the html used for <code>viewdoc</code>.</li>
+</ul>
+
+<h3>2/28/22</h3>
+
+<ul>
+<li>Added the ability to create desktop shortcuts under "Add".</li>
+<li>Because of this new feature, there is now a new file: <code>createdesktop</code></li>
+</ul>
+
+<h3>2/20/22</h3>
+
+<ul>
+<li>Minor modifications to <code>thunder-cli</code> and <code>CLI.md</code>.</li>
+<li>Added <code>--log</code> to <code>CLI.md</code>.</li>
+<li>Logging is now optional.</li>
+</ul>
+
+<h3>2/18/22</h3>
+
+<ul>
+<li>Changed some shell scripts to launch with <code>dash</code> instead of <code>bash</code>. This highly improves performance.</li>
+</ul>
+
+<h3>2/7/22</h3>
+
+<ul>
+<li>Updated configs for Shovel Knight games to improve performance. Both games now can run full speed using these configs.</li>
+<li>Various QOL improvements.</li>
+</ul>
+
+<h3>2/6/22</h3>
+
+<ul>
+<li>Updated "System Info (all platforms)" to include "Build Details".</li>
+<li>Updated <code>thunder-cli --version</code> to <code>STABLE Rev 1.0</code>.</li>
+<li>When a game finishes installing, Thunder now displays a notification.</li>
+<li>Due to the new feature mentioned above, <code>zenity</code> is now a dependency. Install it with <code>sudo apt install zenity</code>.</li>
+<li>Thunder now logs errors to <code>~/.thunder/thunder.log</code>.</li>
+</ul>
+
+<h3>2/5/22</h3>
+
+<ul>
+<li>Added slots for up to 15 games</li>
+</ul>
+
+<h3>2/4/22</h3>
+
+<ul>
+<li>Performance improvements.</li>
+</ul>
+
+<h3>2/3/22</h3>
+
+<ul>
+<li>Added <code>gamemode</code> for better performance.</li>
+</ul>
+
+<h3>2/1/22</h3>
+
+<ul>
+<li>Highly improved performance, thanks to removing old code that is no longer needed. This code was removed due to how games were noticeably slower running in Thunder compared to running independantly. Especially performance in 3D games has been improved (over 5FPS faster in PPSSPP).</li>
+<li>Changed the configs for the Shovel Knight games to what they were originally, due to major testing. Small stages in Showdown run perfectly in 720p, but medium and large sized stages only work well with 2 players, 3 or more will cause major lag. To fix this, the resolution has been lowered. Same for Shovel of Hope, where certain stages (especially Plague Knight's) will occasionally lag in 720p.</li>
+</ul>
+
+<h3>1/31/22</h3>
+
+<ul>
+<li>Improved thunderwebhelper so that it can open a wepage on startup.</li>
+</ul>
+
+<h3>1/30/22</h3>
+
+<ul>
+<li>Added a Web Browser, called "thunderwebhelper". It's based on python3-webview, so it works the same as the game storefronts. Currently though it lacks many major features, such as History and Cookies, and as such still has many bugs.</li>
+</ul>
+
+<h3>1/29/22</h3>
+
+<ul>
+<li>Changed the names of 3 items in "Add". "Buy a Game on \<insert store\>" is now "Browse Games on \<insert store\>".</li>
+<li>Storefronts now open in python3-webview, for faster loading and better performance (although currently GOG performs better in an actual browser, but it still will load in python3-webview to keep it consistent with the other storefronts). However certain features do not work. We're working on a way to fix these issues (particularly cookies do not work, which mainly affects logins to each site, especially on Steam it breaks compatability in logins between steampowered.com and steamcommunity.com). For now though it works enough for you to browse games on each store. Please purchase games in an actual browser until these issues are fixed.</li>
+<li>Due to the feature mentioned above, a new dependency has been added to setup: <code>python3-webview</code>. You may install it using <code>sudo apt install --no-install-recommends python3-webview</code>.</li>
+<li>Updated configs for "Shovel Knight: Shovel of Hope" and "Shovel Knight Showdown" to higher the resolution to 1280x720, due to the performance increase with these games in the latest Box64 update, which is included with Thunder.</li>
+</ul>
+
+<h3>1/28/22</h3>
+
+<ul>
+<li>Added the ability to change the size of library covers</li>
+<li>Due to the new feature mentioned above, added the file "Thunder/size.cfg"</li>
+<li>Made "Thunder/setup" not force you to reset your configs</li>
+<li>Added 3 new items to "Add": "Buy a Game on Steam", "Buy a Game on Itch.io", "Buy a Game on GOG.com"</li>
+</ul>
+
+<h3>1/27/22</h3>
+
+<ul>
+<li>Added "Thunder/CHANGELOG.md"</li>
+<li>Updated Box86 to newest build to ensure Steam compatability</li>
+<li>Updated Box64 to newest build</li>
+<li>Updated "Thunder/README.md" to include "Thunder/CHANGELOG.md"</li>
+</ul>
+
+<hr />

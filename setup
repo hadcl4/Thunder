@@ -1,0 +1,355 @@
+#!/bin/bash
+# Thunder Installation Script
+# This script may look clunky and complicated, but if you want to modify it read the comments first!
+if uname -m | grep -q 'x86' ;then # Make sure the user isn't trying to run Thunder on x86, or that ruins the point of it
+	echo "Sorry, but Thunder is not for x86 devices. It is only available for ARM Linux PCs. A similar app on x86 is Lutris, but if you still want to use Thunder consider purchasing a Raspberry Pi 4 or 3."
+	exit
+fi
+if uname -m | grep -q 'amd64' ;then
+	echo "Sorry, but Thunder is not for x86 devices. It is only available for ARM Linux PCs. A similar app on x86 is Lutris, but if you still want to use Thunder consider purchasing a Raspberry Pi 4 or 3."
+	exit
+	fi
+if uname -m | grep -q 'i386' ;then
+	echo "Sorry, but Thunder is not for x86 devices. It is only available for ARM Linux PCs. A similar app on x86 is Lutris, but if you still want to use Thunder consider purchasing a Raspberry Pi 4 or 3."
+	exit
+	fi
+if uname -m | grep -q 'i686' ;then
+	echo "Sorry, but Thunder is not for x86 devices. It is only available for ARM Linux PCs. A similar app on x86 is Lutris, but if you still want to use Thunder consider purchasing a Raspberry Pi 4 or 3."
+	exit
+	fi
+if uname -m | grep -q 'armel' ;then
+	echo "Sorry, but Thunder is not compatible with ARMEL devices. You need at least an ARMHF or ARM64 processor. Please consider purchasing a board with the ARM64 or ARMHF architecture, or upgrade your current device to a new architecture."
+	exit
+	fi
+
+echo Welcome to Thunder setup! In a few steps your ARM SBC will be a gaming machine. We need to ask you some questions first.
+read -p "To play most games you'll need Box86 to be installed. Install it? [Y/n] " response
+if [[ $response =~ [Nn] ]]; then
+        echo OK, skipping. # The main reason there's the skip option is if someone already has the things installed
+        fi
+# Compile Box86 for the selected Pi
+if [[ $response =~ [Yy] ]]; then
+            echo Time to compile! "(This might take a while.)"
+            read -p "Wait, one last thing. What to SBC to compile for?: 464/432/3/RK3399/SD845 " whattocompilefor
+            # RK3399
+            if [[ $whattocompilefor == "RK3399" ]]; then
+				echo Got it, an RK3399. # Not everything works with this, but pretty much everything
+			function check-armhf() {
+			ARMHF="$(dpkg --print-foreign-architectures | grep "armhf")"
+			}
+			check-armhf
+			if [[ "$ARMHF" == *"armhf"* ]]; then
+				echo "ARMHF architecture is already added..."
+			else
+			sudo dpkg --add-architecture armhf
+			check-armhf
+			if [[ "$ARMHF" != *"armhf"* ]]; then
+				echo "The ARMHF architecture should be added by now, but it isn't!"
+				echo "Sorry, run this script again but skip compiling for an RK3399..."
+				exit
+			fi
+			fi
+			echo Working on it...
+			cd ~
+			git clone https://github.com/ptitSeb/box86
+			cd box86
+			sudo apt install gcc-arm-linux-gnueabihf
+			#if you encounter errors, run 'sudo apt install libc6-dev-armhf-cross'
+			mkdir build; cd build; cmake .. -DRK3399=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo; make -j3
+			echo Finished!
+			fi
+			# SD845
+			if [[ $whattocompilefor == "SD845" ]]; then
+				echo Got it, an SD845. # Not everything works with this, but pretty much everything
+			function check-armhf() {
+			ARMHF="$(dpkg --print-foreign-architectures | grep "armhf")"
+			}
+			check-armhf
+			if [[ "$ARMHF" == *"armhf"* ]]; then
+				echo "ARMHF architecture is already added..."
+			else
+			sudo dpkg --add-architecture armhf
+			check-armhf
+			if [[ "$ARMHF" != *"armhf"* ]]; then
+				echo "The ARMHF architecture should be added by now, but it isn't!"
+				echo "Sorry, run this script again but skip compiling for an SD845..."
+				exit
+			fi
+			fi
+			echo Working on it...
+			cd ~
+			git clone https://github.com/ptitSeb/box86
+			cd box86
+			sudo apt install gcc-arm-linux-gnueabihf
+			mkdir build; cd build; cmake .. -DSD845=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo; make -j4
+			echo Finished!
+			fi
+			# 64-bit Pi4
+			if [[ $whattocompilefor == "464" ]]; then
+            	echo Got it, a Pi4 64-BIT. # This is the best option of the three.
+            	
+            function check-armhf() {
+			ARMHF="$(dpkg --print-foreign-architectures | grep "armhf")"
+			}
+		
+            # This part right here is from the 64-bit install script on pi-apps. It checks if armhf is an arch on the system.
+            check-armhf
+			if [[ "$ARMHF" == *"armhf"* ]]; then
+				echo "ARMHF architecture is already added..."
+			else
+			sudo dpkg --add-architecture armhf
+			check-armhf
+			if [[ "$ARMHF" != *"armhf"* ]]; then
+				echo "The ARMHF architecture should be added by now, but it isn't!"
+				echo "Sorry, run this script again but skip compiling for a 64-bit Pi4..."
+				exit
+			fi
+			fi
+            echo Working on it...
+            cd ~ # This isn't necessary, but it's preferred.
+			sudo apt install gcc-arm-linux-gnueabihf
+            git clone https://github.com/ptitSeb/box86
+			cd box86
+			mkdir build; cd build; cmake .. -DRPI4ARM64=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo
+			make -j2
+			sudo make install # This technically is optional, but it will make a lot easier.
+		    sudo systemctl restart systemd-binfmt
+	        echo "Please ensure you have all needed dependencies before using Box86."
+			echo Finished!
+		#cp ~/Thunder/emulators/box86 /usr/local/bin/box86
+		#/usr/local/bin/box86
+		#sudo systemctl restart systemd-binfmt
+		echo "Finished!"
+        	fi
+            # 32-bit Pi4
+            if [[ $whattocompilefor == "432" ]]; then
+            	echo Got it, a Pi4 32-BIT. # I prefer 64-bit though.
+            	echo Working on it...
+            	cd ~
+            	git clone https://github.com/ptitSeb/box86
+				cd box86
+				mkdir build; cd build; cmake .. -DRPI4=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo
+				make
+				sudo make install
+				sudo systemctl restart systemd-binfmt
+				echo Finished!
+            	fi
+            # 32-bit Pi3	
+            if [[ $whattocompilefor == "3" ]]; then
+            	echo Got it, a Pi3. # But seriously who would use a Pi3 as a Gaming PC when there's Pi4 XD?!
+            	echo Working on it...
+            	cd ~
+            	git clone https://github.com/ptitSeb/box86
+				cd box86
+				mkdir build; cd build; cmake .. -DRPI3=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo # I hope this works, this part was modified and not just copied and pasted!
+				make
+				sudo make install
+				sudo systemctl restart systemd-binfmt
+				echo Finished!
+            	fi
+			echo If you need help with Box86, view box86.org
+            echo OK, now for the next thing.
+            fi
+read -p "To run 64-BIT games you will need Box64. Install it (answer N or n to skip)? [4/RK3399/SD845/N] " boxycompile
+            if [[ $boxycompile =~ [Nn] ]]; then
+            	echo OK, skipping.
+            	fi
+            # Compile Box64 for the Pi4 64-bit
+            if [[ $boxycompile == "4" ]]; then
+            	echo OK, working on it, a 64-bit Pi4.
+            	cd ~ # We want to make Box86 and Box64 accessible for advanced users, so it's going in the home directory.
+            	git clone https://github.com/ptitSeb/box64
+			cd box64
+			mkdir build; cd build; cmake .. -DRPI4ARM64=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo # The ARM64 part of it is what makes it 64-bit
+			make -j4
+			sudo make install
+			sudo systemctl restart systemd-binfmt # We don't know if this is the first time someone installed Box64, so that's why it's here.
+			echo If you need help with Box64, view box86.org
+			echo Finished!
+		#cp ~/Thunder/emulators/box64 /usr/local/bin/box64
+		#/usr/local/bin/box64
+		#sudo systemctl restart systemd-binfmt
+		#echo "Finished!"
+            fi
+			# Compile Box64 for the RK3399
+		if [[ $boxycompile == "RK3399" ]] ;then
+		git clone https://github.com/ptitSeb/box64
+		cd box64
+		mkdir build; cd build; cmake .. -DRK3399=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo
+		make -j4
+		sudo make install
+		sudo systemctl restart systemd-binfmt
+		fi
+		# Compile Box64 for the SD845
+		if [[ $boxycompile == "SD845" ]] ;then
+		git clone https://github.com/ptitSeb/box64
+		cd box64
+		mkdir build; cd build; cmake .. -DSD845=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo
+		make -j4
+		sudo make install
+		sudo systemctl restart systemd-binfmt
+		fi
+read -p "To run most PC games you will need Steam installed. Box86 will need to be installed or else it won't work. Install? [Y/n] " steamy
+            if [[ $steamy =~ [Nn] ]]; then
+            	echo OK, skipping.
+            	fi
+            # Install Steam, Box86 required for this, otherwise Steam won't launch besides error messages about missing dependencies and libc6
+            if [[ $steamy =~ [Yy] ]]; then
+            	cd ~
+				wget https://cdn.akamai.steamstatic.com/client/installer/steam.deb
+				sudo dpkg -i steam.deb # This will work because Steam is a hybrid amd64/i386 app, so it's marked as "all" architectures supported, you can't have 2!
+				rm ~/steam.deb # Clean it up afterwards
+				sudo sed -i 's/set -e/set -e\nexport STEAMOS=1\nexport STEAM_RUNTIME=1/' /usr/lib/steam/bin_steam.sh # Let's sed hack some stuff!
+				mkdir -p ~/.local/share/Steam/config # Prepare for the next hack.
+				wget https://raw.githubusercontent.com/Botspot/Steam-RPi/main/DialogConfig.vdf -O ~/.local/share/Steam/config/DialogConfig.vdf # Now let's hack Steam some more!
+				echo Now for the dependencies... # Without them it might not work.
+				sudo apt install libnss3:armhf libnm0:armhf libdbus-glib-1-2:armhf libudev1:armhf libnspr4:armhf libgudev-1.0-0:armhf libusb-1.0-0:armhf libappindicator1:armhf # These are for Hirsute, it might not work on other distros.
+				echo If you need help with Steam, view steampowered.com or box86.org
+				echo Steam installed!
+				fi
+read -p "To run retro games Mednafen will need to be installed. It doesn't need Box86 or Box64 to run. Install Mednafen? [Y/n] " medd
+	if [[ $medd =~ [Nn] ]]; then
+		echo OK, skipping.
+		fi
+	if [[ $medd =~ [Yy] ]]; then
+		echo OK, installing.
+		sudo apt install mednafen # Not everything works with Mednafen, but most should if they're 16-bit or 8-bit. 32-bit might differ by game.
+		mednafen # Then start mednafen to create a config folder
+		rm ~/.mednafen/mednafen.cfg # Remove the default config file
+		cp ~/Thunder/mednafen.cfg ~/.mednafen/mednafen.cfg # And finally copy Thunder's Mednafen Config file, which has some gamepads preconfigured
+		sudo chmod +x ~/Thunder/emulators/mednagui/mednagui.py
+		sudo chmod +x ~/Thunder/emulators/mednagui/settings
+		echo If you need help with Mednafen, view mednafen.github.io
+		echo Finished!
+		fi
+#read -p "Do you want to install Flatpak and PPSSPP for ARM64?: " flatty
+#	if [[ $flatty =~ [Nn] ]]; then
+#		echo Okay...
+#		fi
+#	if [[ $flatty =~ [Yy] ]] ;then
+#		echo "Got it."
+#		echo "Ready to install PPSSPP now that you're done with Flatpak? (if you don't know what this means just say no, you'll know soon): " pspemu
+#		if [[ $pspemu =~ [Nn] ]] ;then
+#			echo "Don't worry, you'll know what it means soon."
+#			echo "Setting up Flatpak..."
+#			sudo apt install flatpak
+#			sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+#			echo "Flatpak installed!"
+#			echo "Before you install PPSSPP, you'll need to reboot. We'll give you 24 hours to do that :) (hit Ctrl+C and Reboot)."
+#			sleep 1d
+#			fi
+#		if [[ $pspemu =~ [Yy] ]] ;then
+#			echo "Here we go!"
+#			flatpak install org.ppsspp.PPSSPP
+#			echo "Installed PPSSPP!"
+#			fi
+#		fi
+#read -p "How about PPSSPP for armhf?: " ppssppyesno
+#	if [[ $ppssppyesno =~ [Nn] ]] ;then
+#	echo "OK..."
+#	fi
+#	if [[ $ppssppyesno =~ [Yy] ]] ;then
+#	echo "Got it."
+#	# This is from Pi-Apps' PPSSPP install script.
+#	sudo apt install libgl1-mesa-dev libsdl2-dev libvulkan-dev wget unzip
+#	cd ~/
+#	rm -f ppsspp.zip
+#	wget -O ppsspp.zip https://github.com/ryanfortner/ppsspp-rpi/releases/download/v1.12.3/ppsspp_1.12.3_armhf.zip
+#	unzip ppsspp.zip
+#	rm -f ppsspp.zip
+#	echo "[Desktop Entry]
+#	Version=1.0
+#	Type=Application
+#	Name=PPSSPP
+#	Comment=PSP emulator
+#	Icon=$HOME/Thunder/emulators/ppsspp/icon.png
+#	Exec=$HOME/ppsspp/PPSSPPSDL
+#	Categories=Game;" > ~/.local/share/applications/ppsspp.desktop
+#	fi
+echo Just a little bit left!
+echo Now initializing the Thunder client and configuring emulators...
+cd ~
+cd Thunder
+sudo chmod +x main.py # Make main.py executable
+sudo rm -f /usr/local/bin/thunder-cli
+sudo cp ~/Thunder/thunder-cli /usr/local/bin/thunder-cli # Allow Thunder to be used from the command line
+cd ~
+echo "Configuring Dolphin..."
+Thunder/emulators/dolphin/dolphin-emu-nogui
+rm ~/.config/dolphin-emu/GFX.ini
+cp Thunder/emulators/dolphin/GFX.ini ~/.config/dolphin-emu/GFX.ini
+echo "Dolphin configuration complete!"
+echo "Configuring melonDS_Pi..."
+sudo chmod +x ~/Thunder/emulators/melonDS_Pi/melonDS
+sudo chmod +x ~/Thunder/emulators/melonDS_Pi/launcher
+echo "melonDS_Pi configuration complete!"
+echo "Preparing PPSSPP..."
+# unzip ~/Thunder/emulators/ppsspp/PPSSPP.zip
+sudo chmod +x ~/Thunder/emulators/ppsspp/PPSSPPSDL
+echo "Finished preparing PPSSPP!"
+mkdir .thunder
+cd .thunder
+mkdir configs
+cd ~
+cd Thunder
+read -p "Reset configuration (needed on first-time setup)? [Y/n]: " firsttimes
+if [[ $firsttimes =~ [Yy] ]]; then
+rm -f ~/.thunder/library.cfg
+cp library.cfg ~/.thunder/library.cfg
+rm -f ~/.thunder/config.cfg
+cp config.cfg ~/.thunder/config.cfg
+rm -f ~/.thunder/page.cfg
+cp page.cfg ~/.thunder/page.cfg
+rm -f ~/.thunder/size.cfg
+cp size.cfg ~/.thunder/size.cfg
+fi
+if [[ $firsttimes =~ [Nn] ]]; then
+echo "Got it."
+fi
+cd runtime
+sudo chmod +x startup
+# cp startup ~/.config/autostart/thunder_startup In the future
+cp default.txt ~/.thunder/default.txt
+cd ..
+echo Initialized the Thunder client!
+echo Creating menu shortcut...
+sudo python3 c_desktop.py $USER # Run the Python script to make the shortcut
+sudo chmod +x /usr/share/applications/thunder.desktop # Then make it executable
+sudo chmod +x ~/Thunder/start # Also make the launcher executable
+echo Created menu shortcut!
+echo Installing dependencies...
+sudo apt update # Make sure everything is up to date
+sudo apt install --no-install-recommends python3-pip # Make sure pip is installed
+sudo pip3 install guizero # Then install guizero. I chose guizero so new programmers can easily contribute to it. Also it's really quick to develop with
+sudo pip3 install pillow # This is for more image types
+sudo apt install python3-tk # Tkinter library
+sudo apt install --no-install-recommends gnome-terminal # This is Thunder's preferred terminal
+sudo apt install --no-install-recommends pcmanfm # This is Thunder's preferred file manager
+sudo apt install python3-pil.imagetk # Most distros have this preinstalled, but RPiOS Lite doesn`t, so it`s still here
+sudo apt install neofetch # For system info in thunder-cli
+sudo apt install mesa-utils # For system info in thunder-cli
+sudo apt install vulkan-tools # For system info in thunder-cli
+sudo apt install --no-install-recommends python3-webview # For viewing Steam, GOG, and Itch
+sudo apt install gamemode # For better performance
+sudo apt install --no-install-recommends zenity # For various functions of the GUI
+# Currently Thunder does not run on PiOS Lite due to dependency issues. We`re working on it! EDIT: Fixed on Nov. 28`s build!
+echo Installed dependencies!
+# echo One final thing.
+# read -p "Do you want to setup your game library? [Y/n]: " thunderlibrary
+#	if [[ $thunderlibrary =~ [Nn] ]] ;then
+#	echo "Okay, if you say so..."
+#	fi
+#	if [[ $thunderlibrary =~ [Yy] ]] ;then
+#	echo "We'll setup the default config wherever you want. Please enter the name of want to want to call your library:"
+#	read -p "Library Name: " libraryname
+#	echo "Got it, "$libraryname" it is!"
+#	echo "Now enter the folder you want to store your library in (if you're not sure put '.thunder':"
+#	read -p "Folder Path: " foldername
+#	echo "Got it, "$foldername" it is!"
+#	cd $foldername
+#	mkdir $libraryname
+#	cp /home/$USER/Thunder/library.cfg $foldername/$libraryname/library.cfg
+#	echo "Library setup complete!"
+#	fi
+echo Thunder is now installed. Go on and start playing!
+sleep 1s

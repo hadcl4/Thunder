@@ -1,0 +1,13 @@
+YCFS=1
+version=1
+width=1152
+height=648
+posX=0
+posY=0
+fullscreen=2
+monitor=0
+vsync=0
+variableVSync=1
+gamma=X3F19999A
+border=1
+screenSizeMultiplier=X3F800000

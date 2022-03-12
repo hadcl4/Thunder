@@ -1,0 +1,70 @@
+<div><a href="main.html">BACK TO MENU</a></div>
+<h6>This file is outdated very often. Please view Thunder's filesystem for a more up-to-date view of Thunder's directory structure.</h6>
+
+<h1>Directory Structure</h1>
+
+<p>Thunder's directory structure is discussed in this file. If you're not a developer interested in contributing to Thunder, and just a normal user, this file probably won't interest you. Well, let's get started!</p>
+
+<h2>Assets</h2>
+
+<p>Assets are stored in the base Thunder directory, located at ~/Thunder. Here is a diagram of the assets' location:
+<code>
+~/Thunder
+--|logo.gif
+--|logo.png
+--|play.gif
+--|setup.gif
+--|up.png
+--|down.png
+</code>
+The difference between <code>logo.png</code> and <code>logo.gif</code> is the .png file is the icon for the .desktop file. And the .gif file is used the Thunder app itself.</p>
+
+<h2>Game Database</h2>
+
+<p>Thunder features a built-in database of games. These include both setup scripts for games and covers. Here is its structure:
+<code>
+~/Thunder
+--|database/
+----|&lt;gamename&gt;.sh
+----|&lt;gamename&gt;.gif
+----|configs/
+------|&lt;game configs&gt;
+</code>
+Thunder's database is by no means complete, but it features a large library to make setting up games easier.</p>
+
+<h2>Program Files</h2>
+
+<p>Here is the structure for Thunder's main files:
+<code>
+~/Thunder
+--|main.py
+--|mednafen.cfg
+--|setup
+--|start
+--|thunder-cli
+</code>
+All of the files other than the <code>mednafen.cfg</code> are used directly in Thunder. The <code>mednafen.cfg</code> is copied during setup to Mednafen's folder.</p>
+
+<h2>Markdown Files</h2>
+
+<p>All the markdown files are in the base directory:
+<code>
+~/Thunder
+--|Directory_Structure.md
+--|HELP.md
+--|LICENSE.md
+--|README.md
+--|SOURCES.md
+</code></p>
+
+<h2>Configuration Files</h2>
+
+<p>The configuration files are a little scattered:
+<code>
+~/.thunder
+--|config.cfg
+--|page.cfg
+--|library.cfg
+--|default.txt
+</code>
+The .cfg files located in the <code>.thunder/</code> store the user's game library for a specific platform, and the <code>config.cfg</code> stores user settings (like the selected theme).</p>

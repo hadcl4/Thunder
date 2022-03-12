@@ -1,0 +1,3 @@
+#!/bin/bash
+cd ~/.thunder
+# wget in the future to get the latest info for Thunder

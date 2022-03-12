@@ -1,0 +1,5 @@
+#!/bin/dash
+export MESA_GL_VERSION_OVERRIDE=3.2 
+echo "melonDS for Raspberry Pi"
+echo "by RasPiGaming"
+/home/$USER/Thunder/emulators/melonDS_Pi/melonDS

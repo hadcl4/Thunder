@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+print("Viewing Documentation...")
+import webview
+import sys
+user = sys.argv[1]
+webview.create_window("Thunder - Documentation", "/home/"+user+"/Thunder/doc/main.html")
+webview.start()

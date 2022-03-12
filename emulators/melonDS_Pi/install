@@ -1,0 +1,5 @@
+#!/bin/bash
+chmod +x launcher
+chmod +x melonDS
+sudo cp launcher /usr/local/bin/melonDS
+sudo python install.py $USER

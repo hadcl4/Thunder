@@ -1,0 +1,218 @@
+#!/bin/bash
+cd ~/Thunder
+if [[ -z "$1" ]] ;then
+echo "Usage: thunder-cli [ARGUMENTS...]  Run Thunder in CLI mode with the specified arguments"
+echo "       thunder-cli --help          Print thunder-cli's help message."
+echo "       thunder-cli --version       Print Thunder's version"
+echo "       Please run 'thunder-cli --help' for more information."
+fi
+
+function --help {
+    echo "Here are some of the ways you can use Thunder in the command line:"
+    echo "thunder-cli --gui | Run Thunder in GUI mode from the CLI. Useful for debugging."
+    echo "thunder-cli --setup | Run a setup for a game from the command line"
+    echo "thunder-cli --debug | Debug a game in Box86/64 or Mednafen (can also be used to just run a game)"
+    echo "thunder-cli --sysinfo | View your system information"
+    echo "thunder-cli --docs | View one of Thunder's markdown files"
+    echo "thunder-cli --cloud | Use ThunderCloud from the CLI"
+    echo "thunder-cli --addgame | Add a game to your library (affects GUI)"
+    echo "thunder-cli --reset | Reset Thunder's configuration (affects GUI)"
+    echo "thunder-cli --install | Install a game from Thunder's store"
+    echo "thunder-cli --log | View Thunder's log. Useful for debugging. Logging must be enabled by editing 'start'. Instructions are included there."
+}
+
+function --version {
+    echo "Thunder is currently this version: STABLE Rev 1.0"
+}
+
+function --gui {
+    cd ~/Thunder; ./start
+}
+
+function --setup {
+    read -p "Enter the name of the game you wish to setup (or to view a list enter 'viewlist'), hit enter without an argument to exit: " setupgame
+    if [[ $setupgame == "viewlist" ]] ;then
+    cd ~/Thunder/database; ls
+    --setup
+    else
+    cd ~/Thunder/database
+    chmod +x $setupgame; ./$setupgame
+    fi
+}
+
+function --debug {
+    read -p "Please enter which emulator you wish to debug in: box86/box64/mednafen " debugger
+    if [[ $debugger == "box86" ]] ;then
+        read -p "Please enter the path to the game you wish to debug: " box86path
+        if [[ $box86path == "steam" ]] ;then
+        steam
+        else
+        box86 $box86path
+        fi
+        echo "If you can't figure out the problem yourself, see github.com/ptitSeb/box86/issues for issue reporting."
+    fi
+    if [[ $debugger == "box64" ]] ;then
+        read -p "Please enter the path to the game you wish to debug: " box64path
+        box64 $box64path
+        echo "If you can't figure out the problem yourself, see github.com/ptitSeb/box64/issues for issue reporting."
+    fi
+    if [[ $debugger == "mednafen" ]] ;then
+        read -p "Please enter the path to the ROM you wish to debug: " mednafenpath
+        mednafen $mednafenpath
+        echo "If you can't debug this yourself, see mednafen.github.io for info about Mednafen."
+    fi
+}
+
+function --sysinfo {
+    neofetch
+    echo "---"
+    echo "Vulkan Version (Recommended: 1.1 or better):"
+    vulkaninfo | grep "Vulkan Instance Version:"
+    echo "---"
+    echo "OpenGLES Version (Recommended: 3.0 or better):"
+    glxinfo | grep "OpenGL ES profile version string:"
+    echo "---"
+    echo "OpenGL Version (Recommended: 2.1 or better):"
+    glxinfo | grep "OpenGL version string:"
+    echo "---"
+    echo "CPU Type (Recommended: aarch64 or arm64):"
+    uname -m
+    echo "---"
+    echo "Internet Info:"
+    hostname -I
+    echo "---"
+    echo "Build Information:"
+    echo "Thunder Version"
+    thunder-cli --version
+    echo "Box86 Version"
+    box86 --version
+    echo "Box64 Version"
+    box64 --version
+    echo "Wine Version"
+    BOX86_NOBANNER=1 BOX86_LOG=0 BOX64_NOBANNER=1 BOX64_LOG=0 wine --version
+    echo "---"
+    read -p "Hit enter to exit..."
+}
+
+function --docs {
+    read -p "Please enter the markdown file you wish to view (README.md/LICENSE.md/TODO.md/HELP.md/Directory_Structure.md/SOURCES.md/CLI.md), hit enter without an argument to exit: " docs
+    less $docs
+}
+
+function --cloud {
+    cd ~
+    read -p "Which mode do you wish to do? [send/receive]: " modecloud
+    if [[ $modecloud == "send" ]] ;then
+	read -p "Enter the file you wish to copy: " filetosend
+	read -p "Enter the target's IP address: " targetip
+	read -p "Enter the user to send to on the target: " targetuser
+	read -p "Enter the directory on the target you wish to copy to (leave blank for home dir.): " targetdir
+	scp $filetosend $targetuser@$targetip:$targetdir
+	read -p "Press enter to exit..."
+    fi
+    if [[ $modecloud == "receive" ]] ;then
+	read -p "Enter the file you wish to receive: " filetoget
+	read -p "Enter the IP address to receive from: " iptarget
+	read -p "Enter the user on the target: " usertarget
+	read -p "Enter the directory you want to receive to (use . for home dir.): " dirtarget
+	scp $usertarget@$iptarget:$filetoget $dirtarget
+	read -p "Press enter to exit..."
+    fi
+}
+
+function --addgame {
+    cd ~/.thunder
+    nano library.cfg
+}
+
+function --reset {
+    echo "Resetting configs for Thunder..."
+    rm -f .thunder/page.cfg
+    rm -f .thunder/config.cfg
+    rm -f .thunder/library.cfg
+    cp Thunder/page.cfg .thunder/page.cfg
+    cp Thunder/config.cfg .thunder/config.cfg
+    cp Thunder/library.cfg .thunder/library.cfg
+}
+
+function --install {
+    if [[ -z "$2" ]] ;then
+    echo "Welcome to ThunderStore CLI!"
+    echo "Please enter as the second argument the game you wish to install, or viewlist to see a list."
+    sleep 1s
+    fi
+    if [[ "$2" == "viewlist" ]] ;then
+    echo "Here are the available games:"
+    echo "1. Teeworlds - 2D Platform Shooter - To install: thunder-cli --install teeworlds"
+    echo "2. Armagetron Advanced - 3D Lightcycle Game - To install: thunder-cli --install armagetronad"
+    sleep 1s
+    fi
+    if [[ "$2" == "teeworlds" ]] ;then
+    sudo apt install teeworlds
+    zenity --notification --text="TEEWORLDS has finished installing."
+    read -p "Would you like to edit your library to add your new game? [Y/n]: " storeinstall
+    if [[ $storeinstall =~ [Yy] ]] ;then
+    thunder-cli --addgame
+    fi
+    echo "Install complete!"
+    fi
+    if [[ "$2" == "armagetronad" ]] ;then
+    sudo apt install armagetronad
+    zenity --notification --text="ARMAGETRON ADVANCED has finished installing."
+    read -p "Would you like to edit your library to add your new game? [Y/n]: " storeinstall
+    if [[ $storeinstall =~ [Yy] ]] ;then
+    thunder-cli --addgame
+    fi
+    echo "Install complete!"
+    fi
+}
+
+function --log {
+    less ${HOME}/.thunder/thunder.log
+}
+
+if [[ "$1" == "--help" ]] ;then
+    --help
+fi
+
+if [[ "$1" == "--version" ]] ;then
+    --version
+fi
+
+if [[ "$1" == "--gui" ]] ;then
+    --gui
+fi
+
+if [[ "$1" == "--setup" ]] ;then
+    --setup
+fi
+
+if [[ "$1" == "--debug" ]] ;then
+    --debug
+fi
+
+if [[ "$1" == "--sysinfo" ]] ;then
+    --sysinfo
+fi
+
+if [[ "$1" == "--docs" ]] ;then
+    --docs
+fi
+
+if [[ "$1" == "--cloud" ]] ;then
+    --cloud
+fi
+
+if [[ "$1" == "--addgame" ]] ;then
+    --addgame
+fi
+
+if [[ "$1" == "--reset" ]] ;then
+   --reset
+fi
+if [[ "$1" == "--install" ]] ;then
+   --install "$@"
+fi
+if [[ "$1" == "--log" ]] ;then
+   --log
+fi

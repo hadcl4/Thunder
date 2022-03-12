@@ -1,0 +1,25 @@
+# Sources
+Sources are scripts to modify Thunder's functions. Through this guide we'll teach you how to use sources and create them. If you're a normal user (not a developer), refer to the "Importing Sources" section. Well, let's get started!
+## Creating a Source
+You can create a source rather quickly. They're called "sources" because it's a source Thunder can refer to. Here we'll make a quick and simple source using Python. First off, you need to make a script to modify Thunder. Here's a simple one:
+```
+f.open("home/user/Thunder/config.cfg", "w") # Open Thunder's theme config file
+f.write("darkgreen") # Replace the theme with darkgreen, one that Thunder doesn't have
+f.close() # Then close the file
+```
+Then users can simply run in a terminal:
+```
+python3 my_source.py
+```
+And there! You got yourself a source! Now of course you can go more in depth than just changing the background to dark green, but this is just an example.
+## Importing Sources
+For importing a source into Thunder, please refer to where you obtained the source. But, as an example for Python- and BASH-based sources, you might be able to run these commands in a terminal:
+### Python
+```
+python3 sourcename.py
+```
+### BASH
+```
+chmod +x sourcename.sh && ./sourcename.sh
+```
+And there! You've now imported a source into Thunder!

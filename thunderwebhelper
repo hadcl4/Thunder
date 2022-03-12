@@ -1,0 +1,26 @@
+#!/bin/env python3
+from guizero import *
+import webview
+import sys
+argv = sys.argv[1]
+def go():
+    webview.create_window("Thunder - Web Browser - "+address.value, protocal.value+"://"+address.value)
+    webview.start()
+if argv == "0":
+    app = App(title="Thunder - Web Browser", height=130, width=360, bg="white")
+    text = Text(app, text="Web Protocal (https is a good choice):")
+    protocal = Combo(app, options=["https", "http"], selected="https")
+    moretext = Text(app, text="Web Address:")
+    address = TextBox(app, text="google.com",width=30)
+    letsgo = PushButton(app, text="Go", command=go)
+    app.display()
+else:
+    webview.create_window("Thunder - Web Browser - "+argv, argv)
+    webview.start()
+    app = App(title="Thunder - Web Browser", height=130, width=360, bg="white")
+    text = Text(app, text="Web Protocal (https is a good choice):")
+    protocal = Combo(app, options=["https", "http"], selected="https")
+    moretext = Text(app, text="Web Address:")
+    address = TextBox(app, text=argv,width=30)
+    letsgo = PushButton(app, text="Go", command=go)
+    app.display()

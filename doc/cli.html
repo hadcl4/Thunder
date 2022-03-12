@@ -1,0 +1,88 @@
+<div><a href="main.html">BACK TO MENU</a></div>
+<h1><code>thunder-cli</code> Documentation</h1>
+
+<h2>Introduction</h2>
+
+<p><code>thunder-cli</code> is a command line tool for using Thunder on operating systems without X11 or Wayland, or to use Thunder in a terminal. Most of the things you can do in the GUI can be done in <code>thunder-cli</code>. The only notable exception is <code>thunder-cli</code> doesn't keep track of your game library, but it still is very simple to launch games. Many of the features in the GUI (viewing the docs, viewing system info, running a setup, etc.) actually use <code>thunder-cli</code>!</p>
+
+<h2>The Basics</h2>
+
+<p>To get started using <code>thunder-cli</code>, run the following command in the terminal:
+<code>
+thunder-cli --help
+</code>
+This will list off all of <code>thunder-cli</code>'s functions. In this section we'll go over the following:</p>
+
+<blockquote>
+  <p>--gui</p>
+
+<p>--setup</p>
+
+<p>--debug</p>
+
+<p>--docs</p>
+
+<p>--help</p>
+
+<p>--version</p>
+
+<p>--addgame</p>
+</blockquote>
+
+<h3><code>--gui</code></h3>
+
+<p>Launch Thunder's graphical user interface (X11 or Wayland required).</p>
+
+<h3><code>--setup</code></h3>
+
+<p>Run a setup for a game. You may enter <code>viewlist</code> to see a list of games with setup scripts.</p>
+
+<h3><code>---debug</code></h3>
+
+<p><code>--debug</code> is mainly for debugging a game in an emulator (Box86, Box64, or Mednafen), but you may also use it to launch a game. If you want to launch Steam, select Box86 as the emulator, and simply set "steam" as the path (without the quotes). I've written it so that it will just launch Steam, because of how steam works with launching it. To launch Steam you'll <em>need</em> Box86's binfmt set up (if compiled manually it should be working).</p>
+
+<h3><code>--docs</code></h3>
+
+<p>View Thunder's helpful markdown files (including this!).</p>
+
+<h3><code>--help</code></h3>
+
+<p>Get a list of commands to use with <code>thunder-cli</code>.</p>
+
+<h3><code>--version</code></h3>
+
+<p>View Thunder's version.</p>
+
+<h3><code>--addgame</code></h3>
+
+<p>Add a game to Thunder's library (only affects gui).</p>
+
+<h2>Advanced Features</h2>
+
+<p>This section will go over more advanced features:</p>
+
+<blockquote>
+  <p>--sysinfo</p>
+
+<p>--cloud</p>
+
+<p>--reset</p>
+
+<p>--log</p>
+</blockquote>
+
+<h3><code>--sysinfo</code></h3>
+
+<p>View your system info from the CLI (including all the data neofetch gets, your Vulkan version, OpenGLES and OpenGL version, CPU architecture, and IP address).</p>
+
+<h3><code>--cloud</code></h3>
+
+<p>Use ThunderCloud from the CLI. You'll need to give quite a bit of info (IP address, username, path to the file you want to copy, etc.). Currently you can only copy games/save files across your local network.</p>
+
+<h3><code>--reset</code></h3>
+
+<p>Reset Thunder's configuration files (only affects GUI). Good if you modified a config yourself and accidentally made a mistake, causing Thunder's GUI to not launch. However be careful as this will also reset your game library.</p>
+
+<h3><code>--log</code></h3>
+
+<p>View Thunder's log. Needs to be enabled by uncommenting a certain part of <code>start</code>. Instructions are included there.</p>

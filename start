@@ -1,0 +1,9 @@
+#!/bin/dash
+echo "---Thunder Client---"
+echo "If an error happens, copy the output of 'thunder-cli --log' or this command (depending on if you've enabled logging or not) and create an issue on the Thunder GitHub page."
+dash ${HOME}/Thunder/runtime/startup
+export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
+# Uncomment the line below to enable Thunder's logging.
+python3 ${HOME}/Thunder/main.py $USER "1" "1" #> ${HOME}/.thunder/thunder.log
+echo "Shutting down Thunder..."
+sleep 1s

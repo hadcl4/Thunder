@@ -1,0 +1,183 @@
+#!/usr/bin/env python3
+print("Creating Desktop Shortcut window...")
+import subprocess
+from configparser import *
+configur = ConfigParser()
+
+import sys
+from os.path import expanduser
+user = sys.argv[1]
+
+home_path = expanduser("~%s" % user)
+
+library = configur.read(home_path+"/.thunder/library.cfg")
+
+# First game in library
+libraryoneNM = configur.get("one", "NM")
+libraryoneID = configur.get("one", "ID")
+libraryoneCV = configur.get("one", "CV")
+libraryoneRN = configur.get("one", "RN")
+# Second game in library
+librarytwoNM = configur.get("two", "NM")
+librarytwoID = configur.get("two", "ID")
+librarytwoCV = configur.get("two", "CV")
+librarytwoRN = configur.get("two", "RN")
+# Third game in library
+librarythreeNM = configur.get("three", "NM")
+librarythreeID = configur.get("three", "ID")
+librarythreeCV = configur.get("three", "CV")
+librarythreeRN = configur.get("three", "RN")
+# Fourth game in library
+libraryfourNM = configur.get("four", "NM")
+libraryfourID = configur.get("four", "ID")
+libraryfourCV = configur.get("four", "CV")
+libraryfourRN = configur.get("four", "RN")
+# Fifth game in library
+libraryfiveNM = configur.get("five", "NM")
+libraryfiveID = configur.get("five", "ID")
+libraryfiveCV = configur.get("five", "CV")
+libraryfiveRN = configur.get("five", "RN")
+# Sixth game in library
+librarysixNM = configur.get("six", "NM")
+librarysixID = configur.get("six", "ID")
+librarysixCV = configur.get("six", "CV")
+librarysixRN = configur.get("six", "RN")
+# Seventh game in library
+librarysevenNM = configur.get("seven", "NM")
+librarysevenID = configur.get("seven", "ID")
+librarysevenCV = configur.get("seven", "CV")
+librarysevenRN = configur.get("seven", "RN")
+# Eighth game in library
+libraryeightNM = configur.get("eight", "NM")
+libraryeightID = configur.get("eight", "ID")
+libraryeightCV = configur.get("eight", "CV")
+libraryeightRN = configur.get("eight", "RN")
+# Ninth game in library
+librarynineNM = configur.get("nine", "NM")
+librarynineID = configur.get("nine", "ID")
+librarynineCV = configur.get("nine", "CV")
+librarynineRN = configur.get("nine", "RN")
+# Tenth game in library
+librarytenNM = configur.get("ten", "NM")
+librarytenID = configur.get("ten", "ID")
+librarytenCV = configur.get("ten", "CV")
+librarytenRN = configur.get("ten", "RN")
+# 11 game in library
+library11NM = configur.get("11", "NM")
+library11ID = configur.get("11", "ID")
+library11CV = configur.get("11", "CV")
+library11RN = configur.get("11", "RN")
+# 12 game in library
+library12NM = configur.get("12", "NM")
+library12ID = configur.get("12", "ID")
+library12CV = configur.get("12", "CV")
+library12RN = configur.get("12", "RN")
+# 13 game in library
+library13NM = configur.get("13", "NM")
+library13ID = configur.get("13", "ID")
+library13CV = configur.get("13", "CV")
+library13RN = configur.get("13", "RN")
+# 14 game in library
+library14NM = configur.get("14", "NM")
+library14ID = configur.get("14", "ID")
+library14CV = configur.get("14", "CV")
+library14RN = configur.get("14", "RN")
+# 15 game in library
+library15NM = configur.get("15", "NM")
+library15ID = configur.get("15", "ID")
+library15CV = configur.get("15", "CV")
+library15RN = configur.get("15", "RN")
+
+from guizero import *
+
+def createdesktop():
+    print("Creating Desktop Shortcut...")
+    f = open(home_path+"/Desktop/"+protocal.value+".desktop", "w")
+    f.write("[Desktop Entry]\n")
+    f.write("Name = "+protocal.value+"\n")
+    if protocal.value == libraryoneNM:
+        gamexec = libraryoneID
+        gamepic = libraryoneCV
+        gamerun = libraryoneRN
+    if protocal.value == librarytwoNM:
+        gamexec = librarytwoID
+        gamepic = librarytwoCV
+        gamerun = librarytwoRN
+    if protocal.value == librarythreeNM:
+        gamexec = librarythreeID
+        gamepic = librarythreeCV
+        gamerun = librarythreeRN
+    if protocal.value == libraryfourNM:
+        gamexec = libraryfourID
+        gamepic = libraryfourCV
+        gamerun = libraryfourRN
+    if protocal.value == libraryfiveNM:
+        gamexec = libraryfiveID
+        gamepic = libraryfiveCV
+        gamerun = libraryfiveRN
+    if protocal.value == librarysixNM:
+        gamexec = librarysixID
+        gamepic = librarysixCV
+        gamerun = librarysixRN
+    if protocal.value == librarysevenNM:
+        gamexec = librarysevenID
+        gamepic = librarysevenCV
+        gamerun = librarysevenRN
+    if protocal.value == libraryeightNM:
+        gamexec = libraryeightID
+        gamepic = libraryeightCV
+        gamerun = libraryeightRN
+    if protocal.value == librarynineNM:
+        gamexec = librarynineID
+        gamepic = librarynineCV
+        gamerun = librarynineRN
+    if protocal.value == librarytenNM:
+        gamexec = librarytenID
+        gamepic = librarytenCV
+        gamerun = librarytenRN
+    if protocal.value == library11NM:
+        gamexec = library11ID
+        gamepic = library11CV
+        gamerun = library11RN
+    if protocal.value == library12NM:
+        gamexec = library12ID
+        gamepic = library12CV
+        gamerun = library12RN
+    if protocal.value == library13NM:
+        gamexec = library13ID
+        gamepic = library13CV
+        gamerun = library13RN
+    if protocal.value == library14NM:
+        gamexec = library14ID
+        gamepic = library14CV
+        gamerun = library14RN
+    if protocal.value == library15NM:
+        gamexec = library15ID
+        gamepic = library15CV
+        gamerun = library15RN
+    if gamerun == "steam":
+        gamerun = "steam steam://rungameid/"+gamexec
+    if gamerun == "wine":
+        gamerun = "wine "+gamexec
+    if gamerun == "mednafen":
+        gamerun = "mednafen "+gamexec
+    if gamerun == "linux":
+        gamerun = gamexec
+    if gamerun == "browser":
+        gamerun = "chromium "+gamexec
+    f.write("Exec="+gamerun+"\n")
+    f.write("Icon="+gamepic+"\n")
+    f.write("Type=Application\n")
+    f.write("Categories=Game;\n")
+    f.write("Terminal=false\n")
+    f.write("StartupNotify=true\n")
+    f.close()
+    print('Running chmod +x "'+home_path+'/Desktop/'+protocal.value+'.desktop"')
+    command = f'chmod +x "'+home_path+'/Desktop/'+protocal.value+'.desktop"'
+    process = subprocess.Popen(command, stdout=True, stderr=True, shell=True)
+
+app = App(title="Thunder - Create Desktop Shortcut",height=115,width=375)
+text = Text(app, text="Please choose which game:")
+protocal = Combo(app, options=[libraryoneNM,librarytwoNM,librarythreeNM,libraryfourNM,libraryfiveNM,librarysixNM,librarysevenNM,libraryeightNM,librarynineNM,librarytenNM,library11NM,library12NM,library13NM,library14NM,library15NM], selected=libraryoneNM)
+PushButton(app,text="Create Shortcut",command=createdesktop)
+app.display()
