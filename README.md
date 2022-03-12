@@ -61,7 +61,7 @@ Now you can play all your PC games portably, without an expensive and heavy gami
 
 ----
 
-### Non Ubuntu/Debain based distros
+### Non Ubuntu/Debian based distros
 Not yet tested. However if you have `apt`, a way to use `.deb`s, and Python, Thunder should work.
 
 ----
