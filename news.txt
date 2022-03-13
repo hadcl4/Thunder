@@ -1,2 +1,1 @@
-Thunder now has an updater!
-Click Thunder->Update Thunder to use it!
+Thunder now has an updater!\nClick Thunder->Update Thunder to use it!
