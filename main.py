@@ -606,7 +606,7 @@ if section == "3":
 menubar = MenuBar(app,
                   toplevel=["Thunder", "Add", "About", "Cloud", "Emulators"],
                   options=[
-                      [ ["Configuration", config], ["Update Thunder", update_thunder], ["System Info (config.txt)", system], ["System Info (all platforms)", sysinfo], ["Game Database", game_collection], ["ThunderStore", store], ["Web Browser", webbrowser], ["Exit Thunder", exit_thunder] ],
+                      [ ["Configuration", config], ["Update Thunder", thunder_update], ["System Info (config.txt)", system], ["System Info (all platforms)", sysinfo], ["Game Database", game_collection], ["ThunderStore", store], ["Web Browser", webbrowser], ["Exit Thunder", exit_thunder] ],
                       [ ["Add Game...", addgame_all], ["Add Source...", source_add], ["Run Setup...", setup_game], ["Create Desktop Shortcut...", create_short], ["Browse Games on Steam", steambrowser], ["Browse Games on Itch.io", itchbrowser], ["Browse Games on GOG.com", gogbrowser] ],
                       [ ["Help", manual], ["License", lic], ["Docs (less)", thunder_docs], ["Docs (html)", thunder_doc_html] ],
                       [ ["ThunderCloud Data Transfer", cloud_cli], ["Steam Chat", thunderclient] ], # This needs some work!
