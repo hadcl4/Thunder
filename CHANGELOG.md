@@ -1,5 +1,8 @@
 # Thunder Changelong
 
+### 3/13/22
+- Thunder now has an updater! Still expiremental, but useful.
+
 ### 3/12/22
 - Thunder is now publicly available on GitHub!
 - Now when you startup Thunder, it will fetch the latest news from GitHub.
