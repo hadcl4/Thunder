@@ -9,6 +9,5 @@ if [[ $thunderversion == "Thunder is currently this version: STABLE Rev 1.0" ]];
 echo "Updating thunder-cli..."
 sudo cp thunder-cli /usr/local/bin/thunder-cli # To update Thunder version
 fi
-echo "Closing in 10 seconds, then will open GUI. Please close the currently running GUI."
+echo "Closing in 10 seconds. Please reopen Thunder for changes to take effect."
 sleep 10s
-thunder-cli --gui
