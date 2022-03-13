@@ -1,0 +1,10 @@
+#!/bin/bash
+cd ~/Thunder
+git pull https://github.com/hadcl4/Thunder main
+echo "Thunder version:"
+thunderversion=$(thunder-cli --version)
+echo $thunderversion
+# STABLE v1.0.0
+if [[ $thunderversion == "STABLE v1.0.0" ]]; then
+echo "No changes to apply yet."
+fi
