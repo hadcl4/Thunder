@@ -303,7 +303,6 @@ def setup_game():
 def thunder_update():
     command = f'gnome-terminal --window --command="/bin/bash /home/$USER/Thunder/update"'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
-    app.destroy()
 def thunder_docs():
     command = f'gnome-terminal --window --command="/home/$USER/Thunder/thunder-cli --docs"'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
