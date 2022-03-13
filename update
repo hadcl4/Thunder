@@ -5,6 +5,9 @@ echo "Thunder version:"
 thunderversion=$(thunder-cli --version)
 echo $thunderversion
 # STABLE v1.0.0
-if [[ $thunderversion == "STABLE v1.0.0" ]]; then
-echo "No changes to apply yet."
+if [[ $thunderversion == "Thunder is currently this version: STABLE Rev 1.0" ]]; then
+echo "Updating thunder-cli..."
+sudo cp thunder-cli /usr/local/bin/thunder-cli # To update Thunder version
 fi
+echo "Closing in 5 seconds."
+sleep 5s
