@@ -22,7 +22,7 @@ function --help {
 }
 
 function --version {
-    echo "Thunder is currently this version: STABLE Rev 1.0"
+    echo "STABLE v1.0.1"
 }
 
 function --gui {
