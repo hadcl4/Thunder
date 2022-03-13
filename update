@@ -11,4 +11,4 @@ sudo cp thunder-cli /usr/local/bin/thunder-cli # To update Thunder version
 fi
 echo "Closing in 5 seconds, then will open GUI. Please close the currently running GUI."
 sleep 10s
-thunder-cli --gui
+thunder-cli --gui & echo "Exiting..."
