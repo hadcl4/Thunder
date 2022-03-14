@@ -56,6 +56,16 @@ else:
 print(panumy)
 
 print("")
+print("News Download:")
+newscfg = open(home_path+"/.thunder/news.cfg", "r")
+newsread = newscfg.read()
+newscfg.close()
+if newsread == "y":
+    print("Yes")
+if newsread == "n":
+    print("No")
+
+print("")
 print("Startup Message:")
 print(startmessage)
 
@@ -195,7 +205,7 @@ def refreshup():
     process = subprocess.Popen(command, stdout=True, stderr=True, shell=True)
 def config():
     global browser
-    config = Window(app, bg="darkgrey", title="Thunder - Configuration", height=600, width=600)
+    config = Window(app, bg="darkgrey", title="Thunder - Configuration", height=700, width=600)
     choosecol = Text(config, text="Choose the window's color: (Restart Required)")
     def blue_color():
         color_choice = "darkblue"
@@ -275,6 +285,19 @@ def config():
     besmall = PushButton(config, text="Small", command=makeitsmall)
     benormal = PushButton(config, text="Normal", command=makeitnormal)
     belarge = PushButton(config, text="Large", command=makeitlarge)
+    def newson():
+        newswrite = open(home_path+"/.thunder/news.cfg", "w")
+        newswrite.write("y")
+        newswrite.close()
+        restart()
+    def newsno():
+        newswrite = open(home_path+"/.thunder/news.cfg", "w")
+        newswrite.write("n")
+        newswrite.close()
+        restart()
+    newstext = Text(config, text="Should Thunder download news at startup?")
+    newsyes = PushButton(config, text="Yes", command=newson)
+    newsno = PushButton(config, text="No", command=newsno)
 def system():
     system = Window(app, bg="darkgrey", title="Thunder - System Info")
     textsys = Text(system, text="System Info (config.txt):")
