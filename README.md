@@ -127,7 +127,7 @@ The `library.cfg` file keeps track of your library, in other words what games yo
 
 The `config.cfg` file tells Thunder what theme to use.
 
-The `configs` folder contains individual configs for each game, for example if a game needs a special environment variable to function properly or needs you to fake a higher profile OpenGL to run.
+The `configs` folder contains individual configs for each game, for example if a game needs a special environment variable to function properly or needs you to fake a higher profile OpenGL to run. Just know this feature isn't available yet, and is being tracked at issue #1.
 
 The `page.cfg` file keeps track of if you want Thunder to be fullscreen or not.
 
