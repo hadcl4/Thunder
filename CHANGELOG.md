@@ -1,5 +1,8 @@
 # Thunder Changelong
 
+### 3/14/22
+- You can now turn off news downloading.
+
 ### 3/13/22
 - Thunder now has an updater! Still expiremental, but useful.
 

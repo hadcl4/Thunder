@@ -47,5 +47,5 @@ This is a feature I've wanted for a long time (in fact it's the whole reason the
 Now that Thunder is on GitHub, instead of making the user manually running `git pull` and possible breaking their install in the process, it would be much more convenient to have an updater. How? Not sure yet.
 ### Add Redream `Not Done Yet`
 Redream has a Raspberry Pi version of their emulator easily available, so why don't I have it included? Simple. Ever since Redream has moved to Gitlab, I haven't been able to find its license, so I don't know if I can freely redistribute it. If you know it's legal to redristibute it, let me know!
-### Add to Settings the option to turn off Thunder downloading news at startup `Not Done Yet`
+### Add to Settings the option to turn off Thunder downloading news at startup `Complete!`
 For people who don't have good internet or don't have a constant internet connection this is important, and should be quite easy to add. However, the downside is that I'll have to create a new config file, so I'll have to work on that soon.
