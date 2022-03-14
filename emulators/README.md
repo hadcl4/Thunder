@@ -27,7 +27,7 @@ PPSSPP is included precompiled for ARMHF. To get the best performance possible, 
 - Arch: aarch64
 - Renderer: OpenGL
 #### Additional Notes:
-This is an optimized version of melonDS for the Raspberry Pi. Normally melonDS lacks HW acceleration because the Pi only has OpenGL 2.1. However, I managed to make a little hack that gets full hardware OpenGL rendering working, and most games run at 60FPS. For the best performance set the renderer as software with OpenGL Display as ON.
+This is an optimized version of melonDS for the Raspberry Pi. Normally melonDS lacks HW acceleration because the Pi only has OpenGL 2.1. However, I managed to make a little hack that gets full hardware OpenGL rendering working, and most games run at 60FPS. For the best performance set the renderer as Software with OpenGL Display as ON, and turn on "Use seperate thread".
 ## Mednagui
 - Platform: Multiple
 - Arch: ARMHF or aarch64
