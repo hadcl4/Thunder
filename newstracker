@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+import sys
+user = sys.argv[1]
+f = open("/home/"+user+"/.thunder/news.cfg","r")
+output = f.read()
+f.close()
+print(output)

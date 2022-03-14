@@ -1,5 +1,9 @@
 #!/bin/bash
+cd ~/Thunder
+newscfg=$(python3 newstracker ${USER})
+if [[ $newscfg == "y" ]]; then
 cd ~/.thunder
 wget https://github.com/hadcl4/Thunder/raw/main/news.txt
 rm default.txt
 mv news.txt default.txt
+fi
