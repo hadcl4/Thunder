@@ -5,11 +5,11 @@ First, click the "Add" button on Thunder's menu bar. And then click "Add Game". 
 ## Adding A Source
 Please view Thunder/SOURCE.md for info.
 ## Changing Themes
-Select Settings->Configuration. Then select what color you want. After that, Thunder will close and you'll need to open it again for the theme to be applied.
+Select Thunder->Configuration. Then select what color you want. After that, Thunder will close and you'll need to open it again for the theme to be applied.
 ## System Information
-Select Settings->System Info (config.txt). Thunder will then fetch the contents on the config.txt file. If you're on Ubuntu (or any other distro where config.txt isn't located at `/boot/config.txt`), you'll need to modify Thunder's code to change where it fetches its data from. On Ubuntu, the config.txt file is located at `/boot/firmware/config.txt`. To find where the code is at that needs changed, simply open a text editor and try `Ctrl+F`, and type in `config.txt`. The location should come up for you to change it.
+Select Thunder->System Info (config.txt). Thunder will then fetch the contents on the config.txt file. If you're on Ubuntu (or any other distro where config.txt isn't located at `/boot/config.txt`), you'll need to modify Thunder's code to change where it fetches its data from. On Ubuntu, the config.txt file is located at `/boot/firmware/config.txt`. To find where the code is at that needs changed, simply open a text editor and try `Ctrl+F`, and type in `config.txt`. The location should come up for you to change it.
 
-If you're not on a Raspberry Pi, select Settings->System Info (all platforms).
+If you're not on a Raspberry Pi, select Thunder->System Info (all platforms).
 ## Retro Games in Mednafen
 If a retro game is failing to boot, try running this command outside of Thunder:
 ```
@@ -46,5 +46,7 @@ There are 2 examples above for an emulator and a cloud-gaming service, so that s
 After you make the BASH script, run in a terminal `chmod +x /path/to/bash/script`.
 
 Finally, add the game with "linux" as the platform and the ID as the path to the BASH script.
+## Creating a Desktop Shortcut
+Select Add->Create Desktop Shortcut. Thunder will then use the same data as the config it reads for a game to create a desktop shortcut. You can choose which game it will create a shortcut for. On some systems (e.g. Ubuntu) you will have to right click the shortcut, select Properties, then allow the file to be executed.
 ## License
 Please view Thunder/LICENSE.md for info.

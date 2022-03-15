@@ -1,4 +1,5 @@
 <div><a href="main.html">BACK TO MENU</a></div>
+
 <h1>HELP</h1>
 
 <p>Thunder is initially easy to use, but here we'll go over the basics. If what you need help with isn't discussed here, create an issue on Thunder's GitHub repo.</p>
@@ -13,13 +14,13 @@
 
 <h2>Changing Themes</h2>
 
-<p>Select Settings->Configuration. Then select what color you want. After that, Thunder will close and you'll need to open it again for the theme to be applied.</p>
+<p>Select Thunder->Configuration. Then select what color you want. After that, Thunder will close and you'll need to open it again for the theme to be applied.</p>
 
 <h2>System Information</h2>
 
-<p>Select Settings->System Info (config.txt). Thunder will then fetch the contents on the config.txt file. If you're on Ubuntu (or any other distro where config.txt isn't located at <code>/boot/config.txt</code>), you'll need to modify Thunder's code to change where it fetches its data from. On Ubuntu, the config.txt file is located at <code>/boot/firmware/config.txt</code>. To find where the code is at that needs changed, simply open a text editor and try <code>Ctrl+F</code>, and type in <code>config.txt</code>. The location should come up for you to change it.</p>
+<p>Select Thunder->System Info (config.txt). Thunder will then fetch the contents on the config.txt file. If you're on Ubuntu (or any other distro where config.txt isn't located at <code>/boot/config.txt</code>), you'll need to modify Thunder's code to change where it fetches its data from. On Ubuntu, the config.txt file is located at <code>/boot/firmware/config.txt</code>. To find where the code is at that needs changed, simply open a text editor and try <code>Ctrl+F</code>, and type in <code>config.txt</code>. The location should come up for you to change it.</p>
 
-<p>If you're not on a Raspberry Pi, select Settings->System Info (all platforms).</p>
+<p>If you're not on a Raspberry Pi, select Thunder->System Info (all platforms).</p>
 
 <h2>Retro Games in Mednafen</h2>
 
@@ -73,6 +74,10 @@ There are 2 examples above for an emulator and a cloud-gaming service, so that s
 <p>After you make the BASH script, run in a terminal <code>chmod +x /path/to/bash/script</code>.</p>
 
 <p>Finally, add the game with "linux" as the platform and the ID as the path to the BASH script.</p>
+
+<h2>Creating a Desktop Shortcut</h2>
+
+<p>Select Add->Create Desktop Shortcut. Thunder will then use the same data as the config it reads for a game to create a desktop shortcut. You can choose which game it will create a shortcut for. On some systems (e.g. Ubuntu) you will have to right click the shortcut, select Properties, then allow the file to be executed.</p>
 
 <h2>License</h2>
 
