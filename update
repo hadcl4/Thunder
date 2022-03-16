@@ -1,19 +1,4 @@
 #!/bin/bash
 cd ~/Thunder
 git pull https://github.com/hadcl4/Thunder main
-echo "Thunder version:"
-thunderversion=$(thunder-cli --version)
-echo $thunderversion
-# STABLE v1.0.0
-if [[ $thunderversion == "Thunder is currently this version: STABLE Rev 1.0" ]]; then
-echo "Updating thunder-cli..."
-sudo cp thunder-cli /usr/local/bin/thunder-cli # To update Thunder version
-fi
-if [[ $thunderversion == "STABLE v1.0.1" ]]; then
-echo "Adding config file..."
-cp news.cfg ~/.thunder/news.cfg
-echo "Updating thunder-cli..."
-sudo cp thunder-cli /usr/local/bin/thunder-cli
-fi
-echo "Closing in 10 seconds. Please reopen Thunder for changes to take effect."
-sleep 10s
+bash updater
