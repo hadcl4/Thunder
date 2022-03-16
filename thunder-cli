@@ -22,7 +22,7 @@ function --help {
 }
 
 function --version {
-    echo "STABLE v1.0.2"
+    echo "STABLE v1.0.3"
 }
 
 function --gui {
@@ -171,6 +171,11 @@ function --log {
     less ${HOME}/.thunder/thunder.log
 }
 
+function --update {
+    cd ~/Thunder
+    bash update
+}
+
 if [[ "$1" == "--help" ]] ;then
     --help
 fi
@@ -215,4 +220,7 @@ if [[ "$1" == "--install" ]] ;then
 fi
 if [[ "$1" == "--log" ]] ;then
    --log
+fi
+if [[ "$1" == "--update" ]] ;then
+   --update
 fi
