@@ -49,6 +49,8 @@ This section will go over more advanced features:
 
 > --update
 
+> --dev
+
 ### `--sysinfo`
 View your system info from the CLI (including all the data neofetch gets, your Vulkan version, OpenGLES and OpenGL version, CPU architecture, and IP address).
 ### `--cloud`
@@ -59,3 +61,5 @@ Reset Thunder's configuration files (only affects GUI). Good if you modified a c
 View Thunder's log. Needs to be enabled by uncommenting a certain part of `start`. Instructions are included there.
 ### `--update`
 Update Thunder (both GUI and CLI).
+### `--dev`
+Enter development mode. This what you'll use when developing Thunder.
