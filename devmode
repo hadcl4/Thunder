@@ -28,10 +28,10 @@ ls doc/*
 fi
 if [[ $thunderoption == "2" ]] ;then
 read -p "Search input?: " tsearch
-grep $tsearch *
-grep $tsearch database/*
-grep $tsearch emulators/*
-grep $tsearch doc/*
+grep -s $tsearch *
+grep -s $tsearch database/*
+grep -s $tsearch emulators/*
+grep -s $tsearch doc/*
 fi
 if [[ $thunderoption == "3" ]] ;then
 read -p "File?: " tfile
