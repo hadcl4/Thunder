@@ -1,14 +1,15 @@
 <div><a href="main.html">BACK TO MENU</a></div>
-<p><img src="../logo.png" alt="Thunder Icon" title="Thunder Icon" /></p>
+
+<p><img src="logo.png" alt="Thunder Icon" title="Thunder Icon" /></p>
 
 <h1>Thunder</h1>
 
-<h2>Gaming on ARM, made easy</h2>
+<h2>## Gaming on ARM, made easy</h2>
 
 <h2>Installing</h2>
 
 <blockquote>
-  <p>View help for Thunder <a href="help.html">here</a></p>
+  <p>View help for Thunder <a href="HELP.md">here</a></p>
 </blockquote>
 
 <p>First make sure your system meets the requirements listed below:</p>
@@ -53,7 +54,7 @@
 
 <p><b>IMPORTANT</b>: Currently Thunder only supports Pi3 and Pi4 boards completely. RK3399 and SD845 are compatible, but not currently tested. More platforms are planned.
 <code>
-git clone https://github.com/hadcl4/Thunder
+cd ~; git clone https://github.com/hadcl4/Thunder
 </code>
 Then run this to start the setup:
 <code>
@@ -68,13 +69,13 @@ Then you'll be asked several questions about what software you want Thunder to i
 <p>On ChromeOS you'll first need to activate a Linux development environment. Head to Settings -> Developers -> Linux Development Environment, then activate. ChromeOS will then download a minimal Debian installation. Before cloning Thunder, run <code>sudo apt update &amp;&amp; sudo apt upgrade</code>. Also, because ChromeOS' Debian environment is very minimal, you'll also need to install nano (<code>sudo apt install nano</code>). After you have updated and installed nano, exit your development environment, and head back to the settings for your development environment. Adjust the size to approximately 12GB. This will give enough room for Thunder, Steam, Box86, Box64, and a several games. After you've adjusted, follow the steps listed for Debian/Ubuntu based distros.</p>
 
 <p>Now you can play all your PC games portably, without an expensive and heavy gaming laptop!
-<img src="../chromeos.png" alt="Thunder on ChromeOS" title="Thunder on ChromeOS" /></p>
+<img src="chromeos.png" alt="Thunder on ChromeOS" title="Thunder on ChromeOS" /></p>
 
 <h6>Thunder running on a Chromebook</h6>
 
 <hr />
 
-<h3>Non Ubuntu/Debain based distros</h3>
+<h3>Non Ubuntu/Debian based distros</h3>
 
 <p>Not yet tested. However if you have <code>apt</code>, a way to use <code>.deb</code>s, and Python, Thunder should work.</p>
 
@@ -89,9 +90,9 @@ Then you'll be asked several questions about what software you want Thunder to i
 <h2>About</h2>
 
 <blockquote>
-  <p>View Thunder's license <a href="license.html">here</a></p>
+  <p>View Thunder's license <a href="LICENSE.md">here</a></p>
 
-<p>View Thunder's changelog <a href="changelog.html">here</a></p>
+<p>View Thunder's changelog <a href="CHANGELOG.md">here</a></p>
 </blockquote>
 
 <p>ARM PCs are amazing. They're small. They're quick. They don't need much power. But... well, there's not many games that natively run on them due to needing an x86 processor. Well, in more recent years, that's changed. Windows has x86 emulation, MacOS has Rosetta 2, and Linux has Box86. The emulation has gotten better, and faster. ARM PCs now have just as quick of performance as x86 PCs, but in a much smaller form factor. ARM PCs are the future, but companies such as Valve haven't made ARM versions of their gaming clients. Well, Thunder is here to change that on Linux platforms. It aims to be a drop-in replacement for Steam, GOG, Itch, and other gaming services, but on ARM devices, allowing you to run x86 games on them. It uses Box86 and Box64 for emulation of an x86 processor, puts your games in a single place, and makes it really easy to run them. You may be wondering though, why not not just use Box86 and Box64 normally? And how is it easier? Well, here it goes:</p>
@@ -129,12 +130,12 @@ Thunder makes use of the following projects. Without these it wouldn't be possib
 <h2>For Developers</h2>
 
 <blockquote>
-  <p>View how to make sources for Thunder <a href="sources.html">here</a></p>
+  <p>View how to make sources for Thunder <a href="SOURCES.md">here</a></p>
 
-<p>View Thunder's directory structure <a href="ds.html">here</a></p>
+<p>View Thunder's directory structure <a href="Directory_Structure.md">here</a></p>
 </blockquote>
 
-<p>Thunder is mainly made of a single file: <a href="../main.py">main.py</a>, because of that you will need to know Python to contribute. It's a rather simple language, so it should be quick to learn. Or, if you don't know Python, but know BASH, you can still contribute! The /database folder contains setup scripts for games, and covers. If you know enough BASH to make a setup script for a game, or are at least able to upload a game cover, you can contribute to Thunder. Also the <a href="../start">start</a> file contains the script to launch Thunder. And also, the <a href="../setup">setup</a> file contains the installation scripts. There also are some extra files such as <a href="../scp.py">scp</a> that manage additional features, like in scp's case file transfer. The script <a href="../thunder-cli">thunder-cli</a> manages many parts of the GUI (setup scripts, system info, etc.) and can be run from the terminal. The /runtime folder contains various extra scripts. For example "../startup" runs when Thunder starts up and downloads from GitHub the latest news about Thunder. Finally, there's the /emulators folder containing various emulators with extra scripts to get the best performance possible. And that's about all, the rest is described in the files themselves.</p>
+<p>Thunder is mainly made of a single file: <a href="main.py">main.py</a>, because of that you will need to know Python to contribute. It's a rather simple language, so it should be quick to learn. Or, if you don't know Python, but know BASH, you can still contribute! The /database folder contains setup scripts for games, and covers. If you know enough BASH to make a setup script for a game, or are at least able to upload a game cover, you can contribute to Thunder. Also the <a href="start">start</a> file contains the script to launch Thunder. And also, the <a href="setup">setup</a> file contains the installation scripts. There also are some extra files such as <a href="scp.py">scp</a> that manage additional features, like in scp's case file transfer. The script <a href="thunder-cli">thunder-cli</a> manages many parts of the GUI (setup scripts, system info, etc.) and can be run from the terminal. The /runtime folder contains various extra scripts. For example "startup" runs when Thunder starts up and downloads from GitHub the latest news about Thunder. Finally, there's the /emulators folder containing various emulators with extra scripts to get the best performance possible. And that's about all, the rest is described in the files themselves.</p>
 
 <p>Thunder stores its configuration in a subdirectory of the home folder: <code>.thunder</code>. The <code>.thunder</code> folder contains the following:
 - <code>library.cfg</code>
@@ -146,15 +147,17 @@ Thunder makes use of the following projects. Without these it wouldn't be possib
 
 <p>The <code>config.cfg</code> file tells Thunder what theme to use.</p>
 
-<p>The <code>configs</code> folder contains individual configs for each game, for example if a game needs a special environment variable to function properly or needs you to fake a higher profile OpenGL to run.</p>
+<p>The <code>configs</code> folder contains individual configs for each game, for example if a game needs a special environment variable to function properly or needs you to fake a higher profile OpenGL to run. Just know this feature isn't available yet, and is being tracked at issue #1.</p>
 
 <p>The <code>page.cfg</code> file keeps track of if you want Thunder to be fullscreen or not.</p>
+
+<p>For development, we recommend using <code>thunder-cli --dev</code>, which will startup Thunder in Devmode.</p>
 
 <hr />
 
 <h2>Emulators</h2>
 
-<p>Please see <a href="../emulators/README.md">emulators/README.md</a> for info about the various emulators included with Thunder (if they require a 64-bit OS or not, what platform they emulate, what's changed with the version included, etc.).</p>
+<p>Please see <a href="emulators/README.md">emulators/README.md</a> for info about the various emulators included with Thunder (if they require a 64-bit OS or not, what platform they emulate, what's changed with the version included, etc.).</p>
 
 <hr />
 
