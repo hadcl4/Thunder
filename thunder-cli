@@ -23,7 +23,7 @@ function --help {
 }
 
 function --version {
-    echo "STABLE v1.0.3"
+    echo "STABLE v1.0.4"
 }
 
 function --gui {
@@ -177,6 +177,11 @@ function --update {
     bash update
 }
 
+function --dev {
+    cd ~/Thunder
+    bash devmode
+}
+
 if [[ "$1" == "--help" ]] ;then
     --help
 fi
@@ -224,4 +229,7 @@ if [[ "$1" == "--log" ]] ;then
 fi
 if [[ "$1" == "--update" ]] ;then
    --update
+fi
+if [[ "$1" == "--dev" ]] ;then
+   --dev
 fi
