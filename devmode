@@ -1,0 +1,56 @@
+#!/bin/bash
+cd ~/Thunder
+echo "Welcome to Thunder in devmode!"
+echo "Please note the following before you continue:"
+echo "You might break your Thunder install."
+echo "Do this at your own risk!"
+echo "-----------------------------------------------"
+tversion=$(thunder-cli --version)
+echo "Thunder in Devmode "${tversion}
+function options {
+echo "OPTIONS:"
+echo "1. View list of files"
+echo "2. Search text files"
+echo "3. Edit text files"
+echo "4. Run an executable file (BASH, Python, etc.)"
+echo "5. Use Git"
+echo "6. Exit devmode"
+read -p "Choose an option [1-6]: " thunderoption
+if [[ $thunderoption == "1" ]] ;then
+echo "root:"
+ls
+echo "database/"
+ls database/*
+echo "emulators/"
+ls emulators/*
+echo "doc/"
+ls doc/*
+fi
+if [[ $thunderoption == "2" ]] ;then
+read -p "Search input?: " tsearch
+grep $tsearch *
+grep $tsearch database/*
+grep $tsearch emulators/*
+grep $tsearch doc/*
+fi
+if [[ $thunderoption == "3" ]] ;then
+read -p "File?: " tfile
+nano $tfile
+fi
+if [[ $thunderoption == "4" ]] ;then
+read -p "Language (python3, dash, bash, etc.)?: " tlanguage
+read -p "File?: " tfiles
+$tlanguage $tfiles
+fi
+if [[ $thunderoption == "5" ]] ;then
+read -p "Git arguments (clone, pull, push, etc.)?: " tgit
+git $tgit
+fi
+if [[ $thunderoption == "6" ]] ;then
+echo "Exiting devmode..."
+sleep 1s
+exit
+fi
+options
+}
+options
