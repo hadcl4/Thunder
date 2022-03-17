@@ -20,6 +20,7 @@ function --help {
     echo "thunder-cli --install | Install a game from Thunder's store"
     echo "thunder-cli --log | View Thunder's log. Useful for debugging. Logging must be enabled by editing 'start'. Instructions are included there."
     echo "thunder-cli --update | Update Thunder (both GUI and CLI)"
+    echo "thunder-cli --dev | Enter devmode"
 }
 
 function --version {
