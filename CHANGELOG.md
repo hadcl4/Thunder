@@ -1,5 +1,8 @@
 # Thunder Changelong
 
+### 3/17/22
+- You can now run Thunder in Devmode! Search files, edit them, view them, and use git, all from one easy-to-use interface! Run it with `thunder-cli --dev`.
+
 ### 3/14/22
 - You can now turn off news downloading.
 

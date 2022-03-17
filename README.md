@@ -131,6 +131,8 @@ The `configs` folder contains individual configs for each game, for example if a
 
 The `page.cfg` file keeps track of if you want Thunder to be fullscreen or not.
 
+For development, we recommend using `thunder-cli --dev`, which will startup Thunder in Devmode.
+
 ----
 
 Emulators
