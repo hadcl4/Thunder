@@ -1,5 +1,9 @@
 # Thunder Changelong
 
+### 3/18/22
+- You can now store up to 20 games in Thunder!
+- Code scanning has been removed, due to how long it takes.
+
 ### 3/17/22
 - You can now run Thunder in Devmode! Search files, edit them, view them, and use git, all from one easy-to-use interface! Run it with `thunder-cli --dev`.
 - Setup code scanning, for better security.
