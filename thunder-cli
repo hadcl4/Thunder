@@ -24,7 +24,7 @@ function --help {
 }
 
 function --version {
-    echo "STABLE v1.0.4"
+    echo "STABLE v1.0.5"
 }
 
 function --gui {

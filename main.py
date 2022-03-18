@@ -168,6 +168,31 @@ library15NM = configur.get("15", "NM")
 library15ID = configur.get("15", "ID")
 library15CV = configur.get("15", "CV")
 library15RN = configur.get("15", "RN")
+# 16 game in library
+library16NM = configur.get("16", "NM")
+library16ID = configur.get("16", "ID")
+library16CV = configur.get("16", "CV")
+library16RN = configur.get("16", "RN")
+# 17 game in library
+library17NM = configur.get("17", "NM")
+library17ID = configur.get("17", "ID")
+library17CV = configur.get("17", "CV")
+library17RN = configur.get("17", "RN")
+# 18 game in library
+library18NM = configur.get("18", "NM")
+library18ID = configur.get("18", "ID")
+library18CV = configur.get("18", "CV")
+library18RN = configur.get("18", "RN")
+# 19 game in library
+library19NM = configur.get("19", "NM")
+library19ID = configur.get("19", "ID")
+library19CV = configur.get("19", "CV")
+library19RN = configur.get("19", "RN")
+# 20 game in library
+library20NM = configur.get("20", "NM")
+library20ID = configur.get("20", "ID")
+library20CV = configur.get("20", "CV")
+library20RN = configur.get("20", "RN")
 
 # The config menu and restart commands
 def restart():

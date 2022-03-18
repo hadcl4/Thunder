@@ -21,5 +21,10 @@ if [[ $thunderversion == "STABLE v1.0.3" ]]; then
 echo "Updating thunder-cli..."
 sudo cp thunder-cli /usr/local/bin/thunder-cli
 fi
+if [[ $thunderversion == "STABLE v1.0.4" ]]; then
+echo "Updating thunder-cli..."
+sudo cp thunder-cli /usr/local/bin/thunder-cli
+python3 patches/update_v1.0.5.py $USER
+fi
 echo "Closing in 10 seconds. Please reopen Thunder for changes to take effect."
 sleep 10s
