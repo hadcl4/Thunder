@@ -446,6 +446,16 @@ def fourteenrun():
     gamerun(title=library14NM, path=library14ID, runner=library14RN)
 def fifteenrun():
     gamerun(title=library15NM, path=library15ID, runner=library15RN)
+def sixteenrun():
+    gamerun(title=library16NM, path=library16ID, runner=library16RN)
+def seventeenrun():
+    gamerun(title=library17NM, path=library17ID, runner=library17RN)
+def eighteenrun():
+    gamerun(title=library18NM, path=library18ID, runner=library18RN)
+def nineteenrun():
+    gamerun(title=library19NM, path=library19ID, runner=library19RN)
+def twentyrun():
+    gamerun(title=library20NM, path=library20ID, runner=library20RN)
 
 def create_short():
     command = f'python3 '+home_path+'/Thunder/createdesktop '+user
