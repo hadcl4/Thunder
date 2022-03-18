@@ -663,7 +663,47 @@ if section == "3":
         cave = PushButton(app, text="Run", command=fifteenrun, align="left", image=home_path+"/Thunder/play.gif", height=64, width=64)
     if not library15NM == "0" and not library15RN == "0":
         setup_cave = PushButton(app, text="Setup", command=setup, align="left", image=home_path+"/Thunder/setup.gif", height=64, width=64)
+        
+if section == "4":
+    if not library16CV == "0":
+        cavecover = Image.open(library16CV)
+        cover_sonic = Picture(app, image=cavecover, align="left", height=libraryy, width=libraryx)
+    if not library16ID == "0":
+        cave = PushButton(app, text="Run", command=sixteenrun, align="left", image=home_path+"/Thunder/play.gif", height=64, width=64)
+    if not library16NM == "0" and not library16RN == "0":
+        setup_cave = PushButton(app, text="Setup", command=setup, align="left", image=home_path+"/Thunder/setup.gif", height=64, width=64)
+    
+    if not library17CV == "0":
+        cavecover = Image.open(library17CV)
+        cover_sonic = Picture(app, image=cavecover, align="left", height=libraryy, width=libraryx)
+    if not library17ID == "0":
+        cave = PushButton(app, text="Run", command=seventeenrun, align="left", image=home_path+"/Thunder/play.gif", height=64, width=64)
+    if not library17NM == "0" and not library17RN == "0":
+        setup_cave = PushButton(app, text="Setup", command=setup, align="left", image=home_path+"/Thunder/setup.gif", height=64, width=64)
+        
+    if not library18CV == "0":
+        cavecover = Image.open(library18CV)
+        cover_sonic = Picture(app, image=cavecover, align="left", height=libraryy, width=libraryx)
+    if not library18ID == "0":
+        cave = PushButton(app, text="Run", command=eighteenrun, align="left", image=home_path+"/Thunder/play.gif", height=64, width=64)
+    if not library18NM == "0" and not library18RN == "0":
+        setup_cave = PushButton(app, text="Setup", command=setup, align="left", image=home_path+"/Thunder/setup.gif", height=64, width=64)
 
+    if not library19CV == "0":
+        cavecover = Image.open(library19CV)
+        cover_sonic = Picture(app, image=cavecover, align="left", height=libraryy, width=libraryx)
+    if not library19ID == "0":
+        cave = PushButton(app, text="Run", command=nineteenrun, align="left", image=home_path+"/Thunder/play.gif", height=64, width=64)
+    if not library19NM == "0" and not library19RN == "0":
+        setup_cave = PushButton(app, text="Setup", command=setup, align="left", image=home_path+"/Thunder/setup.gif", height=64, width=64)
+
+    if not library20CV == "0":
+        cavecover = Image.open(library20CV)
+        cover_sonic = Picture(app, image=cavecover, align="left", height=libraryy, width=libraryx)
+    if not library20ID == "0":
+        cave = PushButton(app, text="Run", command=twentyrun, align="left", image=home_path+"/Thunder/play.gif", height=64, width=64)
+    if not library20NM == "0" and not library20RN == "0":
+        setup_cave = PushButton(app, text="Setup", command=setup, align="left", image=home_path+"/Thunder/setup.gif", height=64, width=64)
 
 menubar = MenuBar(app,
                   toplevel=["Thunder", "Add", "About", "Cloud", "Emulators"],
