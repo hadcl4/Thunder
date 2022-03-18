@@ -397,6 +397,9 @@ def mednagui():
 def ppsspp():
     command = f'~/Thunder/emulators/ppsspp/PPSSPPSDL'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+def mgba():
+    command = f'~/Thunder/emulators/mgba/mgba-qt'
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 # The functions for running games
 def gamerun(title, path, runner):
     print('Thunder is now running '+title+'...')
@@ -712,7 +715,7 @@ menubar = MenuBar(app,
                       [ ["Add Game...", addgame_all], ["Add Source...", source_add], ["Run Setup...", setup_game], ["Create Desktop Shortcut...", create_short], ["Browse Games on Steam", steambrowser], ["Browse Games on Itch.io", itchbrowser], ["Browse Games on GOG.com", gogbrowser] ],
                       [ ["Help", manual], ["License", lic], ["Docs (less)", thunder_docs], ["Docs (html)", thunder_doc_html], ["View Thunder on GitHub", viewrepo] ],
                       [ ["ThunderCloud Data Transfer", cloud_cli], ["Steam Chat", thunderclient] ], # This needs some work!
-                      [ ["Dolphin-Emu", dolphin_emu], ["PCSX Reloaded", pcsxr], ["melonDS_Pi", melonds], ["Mednagui", mednagui], ["PPSSPP", ppsspp] ]
+                      [ ["Dolphin-Emu", dolphin_emu], ["PCSX Reloaded", pcsxr], ["melonDS_Pi", melonds], ["Mednagui", mednagui], ["PPSSPP", ppsspp], ["mGBA", mgba] ]
                   ])
 
 app.display()
