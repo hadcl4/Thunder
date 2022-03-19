@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/bash
 if uname -m | grep -q 'x86' ;then # Make sure the user isn't trying to run Thunder on x86, or that ruins the point of it
 	echo "Sorry, but Thunder is not for x86 devices. It is only available for ARM Linux PCs. A similar app on x86 is Lutris, but if you still want to use Thunder consider purchasing a Raspberry Pi 4 or 3."
 	exit
