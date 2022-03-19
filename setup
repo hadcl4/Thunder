@@ -304,6 +304,8 @@ rm -f ~/.thunder/size.cfg
 cp size.cfg ~/.thunder/size.cfg
 rm -f ~/.thunder/news.cfg
 cp news.cfg ~/.thunder/news.cfg
+rm -f ~/.thunder/browser.cfg
+cp browser.cfg ~/.thunder/browser.cfg
 fi
 if [[ $firsttimes =~ [Nn] ]]; then
 echo "Got it."
