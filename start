@@ -1,4 +1,24 @@
 #!/bin/dash
+if uname -m | grep -q 'x86' ;then # Make sure the user isn't trying to run Thunder on x86, or that ruins the point of it
+	echo "Sorry, but Thunder is not for x86 devices. It is only available for ARM Linux PCs. A similar app on x86 is Lutris, but if you still want to use Thunder consider purchasing a Raspberry Pi 4 or 3."
+	exit
+fi
+if uname -m | grep -q 'amd64' ;then
+	echo "Sorry, but Thunder is not for x86 devices. It is only available for ARM Linux PCs. A similar app on x86 is Lutris, but if you still want to use Thunder consider purchasing a Raspberry Pi 4 or 3."
+	exit
+	fi
+if uname -m | grep -q 'i386' ;then
+	echo "Sorry, but Thunder is not for x86 devices. It is only available for ARM Linux PCs. A similar app on x86 is Lutris, but if you still want to use Thunder consider purchasing a Raspberry Pi 4 or 3."
+	exit
+	fi
+if uname -m | grep -q 'i686' ;then
+	echo "Sorry, but Thunder is not for x86 devices. It is only available for ARM Linux PCs. A similar app on x86 is Lutris, but if you still want to use Thunder consider purchasing a Raspberry Pi 4 or 3."
+	exit
+	fi
+if uname -m | grep -q 'armel' ;then
+	echo "Sorry, but Thunder is not compatible with ARMEL devices. You need at least an ARMHF or ARM64 processor. Please consider purchasing a board with the ARM64 or ARMHF architecture, or upgrade your current device to a new architecture."
+	exit
+	fi
 echo "---Thunder Client---"
 echo "If an error happens, copy the output of 'thunder-cli --log' or this command (depending on if you've enabled logging or not) and create an issue on the Thunder GitHub page."
 bash ${HOME}/Thunder/runtime/startup
