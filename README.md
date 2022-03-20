@@ -35,6 +35,10 @@ These are the operating systems Thunder is regularly tested on:
 
 ###### *You may still encounter bugs on these operating system(s).
 
+These operating systems Thunder supports but isn't regularly tested on:
+
+- Raspberry Pi OS 32-bit and 64-bit
+
 ----
 
 As installing Box86, Box64, Steam, and Mednafen would be complicated, we made an easy-to-use setup script.
