@@ -398,7 +398,7 @@ def ppsspp():
     command = f'~/Thunder/emulators/ppsspp/PPSSPPSDL'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def mgba():
-    command = f'~/Thunder/emulators/mgba/mgba-qt'
+    command = f'~/Thunder/emulators/mgba/mgba-start'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 # The functions for running games
 def gamerun(title, path, runner):
