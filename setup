@@ -336,6 +336,7 @@ sudo apt install vulkan-tools # For system info in thunder-cli
 sudo apt install --no-install-recommends python3-webview # For viewing Steam, GOG, and Itch
 sudo apt install gamemode # For better performance
 sudo apt install --no-install-recommends zenity # For various functions of the GUI
+sudo apt install --no-install-recommends libsdl2-dev # For many emulators
 # Currently Thunder does not run on PiOS Lite due to dependency issues. We`re working on it! EDIT: Fixed on Nov. 28`s build!
 echo Installed dependencies!
 # echo One final thing.
