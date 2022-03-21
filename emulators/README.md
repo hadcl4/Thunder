@@ -43,7 +43,7 @@ The build here was compiled on an Aarch64 Pi4, so I'm not sure if it's compatabl
 ```
 sudo cp box86 /usr/local/bin/box86
 ```
-There also are some additional steps to get Box86's binfmt running, but we won't document that here.
+There also are some additional steps to get Box86's binfmt running, but we won't document that here. This build has been tested on RPiOS and doesn't work currently.
 ## Box64
 - Platform: x86_64 Linux
 - Arch: aarch64
@@ -53,10 +53,10 @@ This build was made for the Pi4. If you skipped compiling Box64 and instead want
 ```
 sudo cp box64 /usr/local/bin/box64
 ```
-There also are some additional steps to get Box64's binfmt running, but we won't document that here.
+There also are some additional steps to get Box64's binfmt running, but we won't document that here. This build has been tested on RPiOS and doesn't work currently.
 ## mGBA
 - Platform: Gameboy Advance
 - Arch: aarch64
 - Renderer: OpenGL
 #### Additional Notes:
-This build was compiled on a Raspberry Pi 4 with 8GB RAM, running Ubuntu 21.04, and has not been tested on other systems. In settings you must select OpenGL 1.x as the renderer.
+This build was compiled on a Raspberry Pi 4 with 8GB RAM, running Ubuntu 21.04. In settings you must select OpenGL 1.x as the renderer. This build has been tested on RPiOS and doesn't work currently.
