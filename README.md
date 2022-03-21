@@ -44,7 +44,7 @@ These operating systems Thunder supports but isn't regularly tested on:
 As installing Box86, Box64, Steam, and Mednafen would be complicated, we made an easy-to-use setup script.
 
 ### Debian/Ubuntu based distros
-<b>IMPORTANT</b>: Currently Thunder only supports Pi3 and Pi4 boards completely. RK3399 and SD845 are compatible, but not currently tested. More platforms are planned.
+<b>IMPORTANT</b>: Currently Thunder only supports Pi4, Pi3, and RK3399. SD845 is compatible as well, but isn't tested. More platforms are planned.
 ```
 cd ~; git clone https://github.com/hadcl4/Thunder
 ```

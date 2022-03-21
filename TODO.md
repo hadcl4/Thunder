@@ -4,7 +4,7 @@
 TODO
 ----
 
-### Add RK3399 compatability `Complete, not tested`
+### Add RK3399 compatability `Complete!`
 Many SBCs and Chromebooks use the RK3399 CPU, so it would be a great platform for Thunder to support!
 ### Add SD845 compatability `Complete, not tested`
 Many phones and laptops use the SD845 CPU (and even though the laptops may have Windows by default, you can install Linux on them), and it's capable of running many PC games. As such, it's a great platform for Thunder to support!
