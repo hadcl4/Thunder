@@ -1,5 +1,8 @@
 # Thunder Changelong
 
+### 3/21/22
+- Improvements to `setup`.
+
 ### 3/18/22
 - You can now store up to 20 games in Thunder!
 - Code scanning has been removed, due to how long it takes.
