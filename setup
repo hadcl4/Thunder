@@ -279,6 +279,15 @@ sudo chmod +x ~/Thunder/start # Also make the launcher executable
 echo Created menu shortcut!
 echo Installing dependencies...
 sudo apt update # Make sure everything is up to date
+echo "Installing gamemode..."
+git clone https://github.com/FeralInteractive/gamemode
+read -p "Install gamemode depenendencies (only say no if you've installed gamemode before)? [Y/n]" gmcomp
+if [[ $gmcomp =~ [Yy] ]]; then
+sudo apt install meson libsystemd-dev pkg-config ninja-build git libdbus-1-dev libinih-dev build-essential
+fi
+cd gamemode
+./bootstrap.sh
+echo "Gamemode install complete!"
 sudo apt install --no-install-recommends python3-pip # Make sure pip is installed
 sudo pip3 install guizero # Then install guizero. I chose guizero so new programmers can easily contribute to it. Also it's really quick to develop with
 sudo pip3 install pillow # This is for more image types
@@ -290,7 +299,6 @@ sudo apt install neofetch # For system info in thunder-cli
 sudo apt install mesa-utils # For system info in thunder-cli
 sudo apt install vulkan-tools # For system info in thunder-cli
 sudo apt install --no-install-recommends python3-webview # For viewing Steam, GOG, and Itch
-sudo apt install gamemode # For better performance
 sudo apt install --no-install-recommends zenity # For various functions of the GUI
 sudo apt install --no-install-recommends libsdl2-dev # For many emulators
 echo Thunder is now installed. Go on and start playing!
