@@ -394,22 +394,40 @@ def cloud_cli():
     command = f'gnome-terminal --window --command="/home/$USER/Thunder/thunder-cli --cloud"'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def dolphin_emu():
-    command = f'cd ~/Thunder/emulators/dolphin && ./dolphin-emu'
+    if mesaon == "0":
+        command = f'cd ~/Thunder/emulators/dolphin && ./dolphin-emu'
+    if mesaon == "1":
+        command = 'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' ~/Thunder/emulators/dolphin/dolphin-emu'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def pcsxr():
-    command = f'cd ~/Thunder/emulators/pcsxr && ./pcsxr'
+    if mesaon == "0":
+        command = f'cd ~/Thunder/emulators/pcsxr && ./pcsxr'
+    if mesaon == "1":
+        command = 'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' ~/Thunder/emulators/pcsxr/pcsxr'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def melonds():
-    command = f'cd ~/Thunder/emulators/melonDS_Pi && ./launcher'
+    if mesaon == "0":
+        command = f'cd ~/Thunder/emulators/melonDS_Pi && ./launcher'
+    if mesaon == "1":
+        command = 'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' ~/Thunder/emulators/melonDS_Pi/launcher'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def mednagui():
-    command = f'cd ~/Thunder/emulators/mednagui && python3 mednagui.py'
+    if mesaon == "0":
+        command = f'cd ~/Thunder/emulators/mednagui && python3 mednagui.py'
+    if mesaon == "1":
+        command = 'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' python3 ~/Thunder/emulators/mednagui/mednagui.py'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def ppsspp():
-    command = f'~/Thunder/emulators/ppsspp/PPSSPPSDL'
+    if mesaon == "0":
+        command = f'~/Thunder/emulators/ppsspp/PPSSPPSDL'
+    if mesaon == "1":
+        command = 'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' ~/Thunder/emulators/ppsspp/PPSSPPSDL'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def mgba():
-    command = f'~/Thunder/emulators/mgba/mgba-start'
+    if mesaon == "0":
+        command = f'~/Thunder/emulators/mgba/mgba-start'
+    if mesaon == "1":
+        command = 'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' ~/Thunder/emulators/mgba/mgba-start'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 # The functions for running games
 def gamerun(title, path, runner):
