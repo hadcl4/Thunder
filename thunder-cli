@@ -24,7 +24,7 @@ function --help {
 }
 
 function --version {
-    echo "STABLE v1.0.5"
+    echo "STABLE v1.0.6"
 }
 
 function --gui {
@@ -183,6 +183,10 @@ function --dev {
     bash devmode
 }
 
+function --mesaconfig {
+    nano ${HOME}/.thunder/mesa.cfg
+}
+
 if [[ "$1" == "--help" ]] ;then
     --help
 fi
@@ -233,4 +237,7 @@ if [[ "$1" == "--update" ]] ;then
 fi
 if [[ "$1" == "--dev" ]] ;then
    --dev
+fi
+if [[ "$1" == "--mesaconfig" ]]; then
+   --mesaconfig
 fi

@@ -77,6 +77,12 @@ print("Library Icon Size:")
 print(librarysize)
 print("")
 
+mesaconfigur = ConfigParser()
+mesaread = mesaconfigur.read(home_path+"/.thunder/mesa.cfg")
+mesa32 = mesaconfigur.get("mesa","ARMHF")
+mesa64 = mesaconfigur.get("mesa","ARM64")
+mesaon = mesaconfigur.get("mesa","ON")
+
 configy = ConfigParser()
 
 browserchoicy = configy.read(home_path+"/.thunder/browser.cfg")
@@ -230,7 +236,7 @@ def refreshup():
     process = subprocess.Popen(command, stdout=True, stderr=True, shell=True)
 def config():
     global browser
-    config = Window(app, bg="darkgrey", title="Thunder - Configuration", height=700, width=600)
+    config = Window(app, bg="darkgrey", title="Thunder - Configuration", height=750, width=600)
     choosecol = Text(config, text="Choose the window's color: (Restart Required)")
     def blue_color():
         color_choice = "darkblue"
@@ -323,6 +329,11 @@ def config():
     newstext = Text(config, text="Should Thunder download news at startup?")
     newsyes = PushButton(config, text="Yes", command=newson)
     newsno = PushButton(config, text="No", command=newsno)
+    def mesaconfig():
+        command = f'gnome-terminal --window --command="/home/'+user+'/Thunder/thunder-cli --mesaconfig"'
+        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    Text(config, text="Other Settings:")
+    PushButton(config, text="Mesa", command=mesaconfig)
 def system():
     system = Window(app, bg="darkgrey", title="Thunder - System Info")
     textsys = Text(system, text="System Info (config.txt):")
@@ -404,19 +415,34 @@ def mgba():
 def gamerun(title, path, runner):
     print('Thunder is now running '+title+'...')
     if runner == "mednafen":
-        command = f'mednafen '+path
+        if mesaon == "0":
+            command = f'mednafen '+path
+        if mesaon == "1":
+            command = f'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' mednafen '+path
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     if runner == "steam":
-        command = f'steam steam://rungameid/'+path
+        if mesaon == "0":
+            command = f'steam steam://rungameid/'+path
+        if mesaon == "1":
+            command = f'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' steam steam://rungameid/'+path
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     if runner == "linux":
-        command = f''+path
+        if mesaon == "0":
+            command = f''+path
+        if mesaon == "1":
+            command = f'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' '+path
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     if runner == "wine":
-        command = f'wine '+path
+        if mesaon == "0":
+            command = f'wine '+path
+        if mesaon == "1":
+            command = f'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' wine '+path
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     if runner == "browser":
-        command = f''+browser+' '+path
+        if mesaon == "0":
+            command = f''+browser+' '+path
+        if mesaon == "1":
+            command = f'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' '+browser+' '+path
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
         
 def onerun():
