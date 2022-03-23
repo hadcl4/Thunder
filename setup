@@ -280,6 +280,7 @@ echo Created menu shortcut!
 echo Installing dependencies...
 sudo apt update # Make sure everything is up to date
 echo "Installing gamemode..."
+cd ~ # ensure that gamemode isn't installed into Thunder's directory, which causes bugs with updates
 git clone https://github.com/FeralInteractive/gamemode
 read -p "Install gamemode depenendencies (only say no if you've installed gamemode before)? [Y/n]" gmcomp
 if [[ $gmcomp =~ [Yy] ]]; then
