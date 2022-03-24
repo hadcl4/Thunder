@@ -401,9 +401,9 @@ def dolphin_emu():
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def pcsxr():
     if mesaon == "0":
-        command = f'cd ~/Thunder/emulators/pcsxr && ./pcsxr'
+        command = f'cd ~/Thunder/emulators/pcsxr && ./start'
     if mesaon == "1":
-        command = 'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' ~/Thunder/emulators/pcsxr/pcsxr'
+        command = 'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' ~/Thunder/emulators/pcsxr/start'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def melonds():
     if mesaon == "0":
