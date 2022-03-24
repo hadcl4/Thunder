@@ -1,3 +1,4 @@
-Introducing Thunder Devmode!
+You can now load custom Mesa installs!
 
-Run thunder-cli --dev to use it!
+Select Thunder->Configuration->Other->Mesa
+to use it!
