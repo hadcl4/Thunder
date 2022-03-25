@@ -58,6 +58,7 @@ This is a list of platforms supported by Thunder:
 - Wine (Runner Name: `wine`)
 - Linux Applications (Runner Name: `linux`)
 - Chromium and Firefox (Runner Name: `browser`)
+- Flatpak (Runner Name: `flatpak`)
 
 #### Steam
 
@@ -78,6 +79,10 @@ This is a list of platforms supported by Thunder:
 #### Chromium and Firefox
 
 - ID: The address for the game
+
+#### Flatpak
+
+- ID: Game's URL (for example: `net.sourceforge.ExtremeTuxRacer`)
 
 ## License
 Please view Thunder/LICENSE.md for info.
