@@ -330,7 +330,7 @@ def config():
     newsyes = PushButton(config, text="Yes", command=newson)
     newsno = PushButton(config, text="No", command=newsno)
     def mesaconfig():
-        command = f'gnome-terminal --window --command="/home/'+user+'/Thunder/thunder-cli --mesaconfig"'
+        command = f'x-terminal-emulator -e "/home/'+user+'/Thunder/thunder-cli --mesaconfig"'
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     Text(config, text="Other Settings:")
     PushButton(config, text="Mesa", command=mesaconfig)
@@ -357,22 +357,22 @@ def thunderclient():
     command = f''+browser+' steamcommunity.com/chat'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def setup_game():
-    command = f'gnome-terminal --window --command="/home/$USER/Thunder/thunder-cli --setup"'
+    command = f'x-terminal-emulator -e "/home/$USER/Thunder/thunder-cli --setup"'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def thunder_update():
-    command = f'gnome-terminal --window --command="/bin/bash /home/$USER/Thunder/update"'
+    command = f'x-terminal-emulator -e "/bin/bash /home/$USER/Thunder/update"'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def thunder_docs():
-    command = f'gnome-terminal --window --command="/home/$USER/Thunder/thunder-cli --docs"'
+    command = f'x-terminal-emulator -e "/home/$USER/Thunder/thunder-cli --docs"'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def thunder_doc_html():
     command = f'python3 /home/'+user+'/Thunder/viewdoc '+user
     process = subprocess.Popen(command, stdout=True, stderr=True, shell=True)
 def sysinfo():
-    command = f'gnome-terminal --window --command="/home/$USER/Thunder/thunder-cli --sysinfo" --geometry=102x30+200+200'
+    command = f'x-terminal-emulator -e "/home/$USER/Thunder/thunder-cli --sysinfo" --geometry=102x30+200+200'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def setup():
-    command = f'gnome-terminal --window --command="/home/$USER/Thunder/thunder-cli --setup"'
+    command = f'x-terminal-emulator -e "/home/$USER/Thunder/thunder-cli --setup"'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def restartgameadd():
     app.destroy()
@@ -382,7 +382,7 @@ def restartgameadd():
     command2 = f'killall thunder-cli'
     process2 = subprocess.Popen(command2, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def addgame_all():
-    command = f'gnome-terminal --window --command="/home/$USER/Thunder/thunder-cli --addgame"'
+    command = f'x-terminal-emulator -e "/home/$USER/Thunder/thunder-cli --addgame"'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     key = Window(app, title="Key", bg="white", width=710, height=125)
     keytext = Text(key, text='NM: Name of a game - Example: "Shovel Knight"')
@@ -391,7 +391,7 @@ def addgame_all():
     keytext4 = Text(key, text="RN: What to run the game with - Possible Values: mednafen, steam, wine, linux, browser, flatpak")
     keybutton = PushButton(key, text="Click here to restart for your changes to take affect.", command=restartgameadd)
 def cloud_cli():
-    command = f'gnome-terminal --window --command="/home/$USER/Thunder/thunder-cli --cloud"'
+    command = f'x-terminal-emulator -e "/home/$USER/Thunder/thunder-cli --cloud"'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def dolphin_emu():
     if mesaon == "0":
@@ -539,10 +539,10 @@ def exit_thunder():
 
 def store():
     def teeinstall():
-        command = f'gnome-terminal --window --command="/home/$USER/Thunder/thunder-cli --install teeworlds"'
+        command = f'x-terminal-emulator -e "/home/$USER/Thunder/thunder-cli --install teeworlds"'
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     def aatainstall():
-        command = f'gnome-terminal --window --command="/home/$USER/Thunder/thunder-cli --install armagetronad"'
+        command = f'x-terminal-emulator -e "/home/$USER/Thunder/thunder-cli --install armagetronad"'
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     storefront = Window(app, title="Thunder - Store", bg="white", width=1000)
     storefrontname = Text(storefront, text="Store", font="Ubuntu", color="black", size=50)

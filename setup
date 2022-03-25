@@ -295,7 +295,6 @@ sudo apt install --no-install-recommends python3-pip # Make sure pip is installe
 sudo pip3 install guizero # Then install guizero. I chose guizero so new programmers can easily contribute to it. Also it's really quick to develop with
 sudo pip3 install pillow # This is for more image types
 sudo apt install python3-tk # Tkinter library
-sudo apt install --no-install-recommends gnome-terminal # This is Thunder's preferred terminal
 sudo apt install --no-install-recommends pcmanfm # This is Thunder's preferred file manager
 sudo apt install python3-pil.imagetk # Most distros have this preinstalled, but RPiOS Lite doesn`t, so it`s still here
 sudo apt install neofetch # For system info in thunder-cli
