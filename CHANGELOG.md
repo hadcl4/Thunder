@@ -1,5 +1,8 @@
 # Thunder Changelong
 
+### 3/25/22
+- Flatpak support
+
 ### 3/23/22
 - You can now load custom `Mesa` installs in Thunder (just know this is currently expiremental, as some games may not work properly)!
 

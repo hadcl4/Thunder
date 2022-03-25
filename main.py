@@ -384,11 +384,11 @@ def restartgameadd():
 def addgame_all():
     command = f'gnome-terminal --window --command="/home/$USER/Thunder/thunder-cli --addgame"'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
-    key = Window(app, title="Key", bg="white", width=700, height=125)
+    key = Window(app, title="Key", bg="white", width=710, height=125)
     keytext = Text(key, text='NM: Name of a game - Example: "Shovel Knight"')
     keytext2 = Text(key, text='ID: The path or ID of a game - Example: /home/pi/Games/Game.x86')
     keytext3 = Text(key, text="CV: Path to game's cover - Example: /home/pi/Pictures/cover.png")
-    keytext4 = Text(key, text="RN: What to run the game with - Possible Values: mednafen, steam, wine, linux, browser")
+    keytext4 = Text(key, text="RN: What to run the game with - Possible Values: mednafen, steam, wine, linux, browser, flatpak")
     keybutton = PushButton(key, text="Click here to restart for your changes to take affect.", command=restartgameadd)
 def cloud_cli():
     command = f'gnome-terminal --window --command="/home/$USER/Thunder/thunder-cli --cloud"'
@@ -461,6 +461,12 @@ def gamerun(title, path, runner):
             command = f''+browser+' '+path
         if mesaon == "1":
             command = f'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' '+browser+' '+path
+        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    if runner == "flatpak":
+        if mesaon == "0":
+            command = f'flatpak run '+path
+        if mesaon == "1":
+            command = f'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' flatpak run '+path
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
         
 def onerun():

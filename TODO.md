@@ -51,5 +51,5 @@ Redream has a Raspberry Pi version of their emulator easily available, so why do
 For people who don't have good internet or don't have a constant internet connection this is important, and should be quite easy to add. However, the downside is that I'll have to create a new config file, so I'll have to work on that soon.
 ### Add more GUIs `Not Done Yet`
 While the current way of adding games through `thunder-cli` is fine for me, a lot of people would most likely prefer a full GUI. So putting it on the to-do list.
-### Add Flatpak Support `Not Done Yet`
+### Add Flatpak Support `Complete!`
 Many games are packaged as Flatpaks, so it would be a good platform for Thunder to support.
