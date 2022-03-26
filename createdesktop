@@ -217,14 +217,19 @@ def createdesktop():
     f.write("Type=Application\n")
     f.write("Categories=Game;\n")
     f.write("Terminal=false\n")
-    f.write("StartupNotify=true\n")
+    if startup.value == "ON":
+        f.write("StartupNotify=true\n")
+    if startup.value == "OFF":
+        f.write("StartupNotify=false\n")
     f.close()
     print('Running chmod +x "'+home_path+'/Desktop/'+protocal.value+'.desktop"')
     command = f'chmod +x "'+home_path+'/Desktop/'+protocal.value+'.desktop"'
     process = subprocess.Popen(command, stdout=True, stderr=True, shell=True)
 
-app = App(title="Thunder - Create Desktop Shortcut",height=115,width=375)
+app = App(title="Thunder - Create Desktop Shortcut",height=135,width=375)
 text = Text(app, text="Please choose which game:")
 protocal = Combo(app, options=[libraryoneNM,librarytwoNM,librarythreeNM,libraryfourNM,libraryfiveNM,librarysixNM,librarysevenNM,libraryeightNM,librarynineNM,librarytenNM,library11NM,library12NM,library13NM,library14NM,library15NM,library16NM,library17NM,library18NM,library19NM,library20NM], selected=libraryoneNM)
+Text(app, text="Startup Notify:")
+startup = Combo(app, options=["ON", "OFF"], selected="ON")
 PushButton(app,text="Create Shortcut",command=createdesktop)
 app.display()
