@@ -369,7 +369,7 @@ def thunder_doc_html():
     command = f'python3 /home/'+user+'/Thunder/viewdoc '+user
     process = subprocess.Popen(command, stdout=True, stderr=True, shell=True)
 def sysinfo():
-    command = f'x-terminal-emulator -e "/home/$USER/Thunder/thunder-cli --sysinfo" --geometry=102x30+200+200'
+    command = f'x-terminal-emulator -e "/home/$USER/Thunder/thunder-cli --sysinfo"'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def setup():
     command = f'x-terminal-emulator -e "/home/$USER/Thunder/thunder-cli --setup"'
