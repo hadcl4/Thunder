@@ -4,7 +4,7 @@
 
 <h1>Thunder</h1>
 
-<h2>Gaming on ARM, made easy</h2>
+<h2>## Gaming on ARM, made easy</h2>
 
 <h2>Installing</h2>
 
@@ -46,13 +46,19 @@
 
 <h6>*You may still encounter bugs on these operating system(s).</h6>
 
+<p>These operating systems Thunder supports but isn't regularly tested on:</p>
+
+<ul>
+<li>Raspberry Pi OS 32-bit and 64-bit</li>
+</ul>
+
 <hr />
 
 <p>As installing Box86, Box64, Steam, and Mednafen would be complicated, we made an easy-to-use setup script.</p>
 
 <h3>Debian/Ubuntu based distros</h3>
 
-<p><b>IMPORTANT</b>: Currently Thunder only supports Pi3 and Pi4 boards completely. RK3399 and SD845 are compatible, but not currently tested. More platforms are planned.
+<p><b>IMPORTANT</b>: Currently Thunder only supports Pi4, Pi3, and RK3399. SD845 is compatible as well, but isn't tested. More platforms are planned.
 <code>
 cd ~; git clone https://github.com/hadcl4/Thunder
 </code>
@@ -66,7 +72,7 @@ Then you'll be asked several questions about what software you want Thunder to i
 
 <h3>ChromeOS</h3>
 
-<p>On ChromeOS you'll first need to activate a Linux development environment. Head to Settings -> Developers -> Linux Development Environment, then activate. ChromeOS will then download a minimal Debian installation. Before cloning Thunder, run <code>sudo apt update &amp;&amp; sudo apt upgrade</code>. Also, because ChromeOS' Debian environment is very minimal, you'll also need to install nano (<code>sudo apt install nano</code>). After you have updated and installed nano, exit your development environment, and head back to the settings for your development environment. Adjust the size to approximately 12GB. This will give enough room for Thunder, Steam, Box86, Box64, and a several games. After you've adjusted, follow the steps listed for Debian/Ubuntu based distros.</p>
+<p>On ChromeOS you'll first need to activate a Linux development environment. Head to Settings -> Developers -> Linux Development Environment, then activate. ChromeOS will then download a minimal Debian installation. Before cloning Thunder, run <code>sudo apt update &amp;&amp; sudo apt upgrade</code>. Also, because ChromeOS' Debian environment is very minimal, you'll also need to install nano (<code>sudo apt install nano</code>). Now there's one final step before we install Thunder: installing another terminal emulator and changing <code>x-terminal-emulator</code> to that terminal. Just for example, install <code>gnome-terminal</code> using <code>sudo apt install gnome-terminal</code>. After that run <code>sudo nano /usr/bin/x-terminal-emulator</code>, comment out the line to launch ChromeOS' terminal, and below that put <code>exec /usr/bin/gnome-terminal "$@"</code>. After you have updated and installed nano, and installed another terminal emulator, exit your development environment, and head back to the settings for your development environment. Adjust the size to approximately 12GB. This will give enough room for Thunder, Steam, Box86, Box64, and a several games. After you've adjusted, follow the steps listed for Debian/Ubuntu based distros.</p>
 
 <p>Now you can play all your PC games portably, without an expensive and heavy gaming laptop!
 <img src="../chromeos.png" alt="Thunder on ChromeOS" title="Thunder on ChromeOS" /></p>
