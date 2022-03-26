@@ -79,6 +79,59 @@ There are 2 examples above for an emulator and a cloud-gaming service, so that s
 
 <p>Select Add->Create Desktop Shortcut. Thunder will then use the same data as the config it reads for a game to create a desktop shortcut. You can choose which game it will create a shortcut for. On some systems (e.g. Ubuntu) you will have to right click the shortcut, select Properties, then allow the file to be executed.</p>
 
+<h2>Updating Thunder and <code>thunder-cli</code></h2>
+
+<p>Select Thunder->Update Thunder. A terminal window will appear, and will pull from GitHub the latest version of Thunder. Please make sure you update frequently, or else you might have bugs because of how Thunder's version is checked. For example with v1.0.1, as of the time that this section is being written the latest is v1.0.3, so it will skip v1.0.2, so you'll need to manually apply the v1.0.2 patch. We're working on a way to fix this though, but if you have trouble just create an issue on the GitHub repo. </p>
+
+<h2>Platforms</h2>
+
+<p>This is a list of platforms supported by Thunder:</p>
+
+<ul>
+<li>Steam (Runner Name: <code>steam</code>)</li>
+<li>Mednafen (Runner Name: <code>mednafen</code>)</li>
+<li>Wine (Runner Name: <code>wine</code>)</li>
+<li>Linux Applications (Runner Name: <code>linux</code>)</li>
+<li>Chromium and Firefox (Runner Name: <code>browser</code>)</li>
+<li>Flatpak (Runner Name: <code>flatpak</code>)</li>
+</ul>
+
+<h4>Steam</h4>
+
+<ul>
+<li>ID: The game's Steam ID</li>
+</ul>
+
+<h4>Mednafen</h4>
+
+<ul>
+<li>ID: The path to the game ROM</li>
+</ul>
+
+<h4>Wine</h4>
+
+<ul>
+<li>ID: The path to the .exe or .msi file</li>
+</ul>
+
+<h4>Linux Applications</h4>
+
+<ul>
+<li>ID: The command you run in a terminal to launch a game (you can also run games for other platforms this way too, for example <code>mgba-qt /path/to/rom</code>)</li>
+</ul>
+
+<h4>Chromium and Firefox</h4>
+
+<ul>
+<li>ID: The address for the game</li>
+</ul>
+
+<h4>Flatpak</h4>
+
+<ul>
+<li>ID: Game's URL (for example: <code>net.sourceforge.ExtremeTuxRacer</code>)</li>
+</ul>
+
 <h2>License</h2>
 
 <p>Please view Thunder/LICENSE.md for info.</p>
