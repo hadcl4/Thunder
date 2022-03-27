@@ -209,7 +209,7 @@ def createdesktop():
     if gamerun == "linux":
         gamerun = gamexec
     if gamerun == "browser":
-        gamerun = "chromium "+gamexec
+        gamerun = "x-www-browser "+gamexec
     if gamerun == "flatpak":
         gamerun = "flatpak run "+gamexec
     f.write("Exec="+gamerun+"\n")
