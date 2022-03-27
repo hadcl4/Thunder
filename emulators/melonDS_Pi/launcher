@@ -3,4 +3,5 @@ export MESA_GL_VERSION_OVERRIDE=3.2
 echo "melonDS for Raspberry Pi"
 echo "by RasPiGaming"
 cd ${HOME}/Thunder/emulators/melonDS_Pi
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
 /home/$USER/Thunder/emulators/melonDS_Pi/melonDS
