@@ -107,10 +107,17 @@ Credits
 ----
 Thunder was programmed by Hadcl4.
 Thunder makes use of the following projects. Without these it wouldn't be possible:
+
 - Box86 and Box64
 - Mednafen
 - Some of the Pi-Apps install scripts
 - Various emulators such as Dolphin and melonDS.
+
+Thunder was created using software listed below:
+
+- VSCodium (coding and error-checking)
+- GIMP (Thunder logo, as well as icons for buttons)
+- `markdown` (Generating HTML docs)
 
 ----
 
