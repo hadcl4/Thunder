@@ -32,6 +32,7 @@ These are the operating systems Thunder is regularly tested on:
 
 - Ubuntu Desktop 21.04 (Raspberry Pi)
 - ChromeOS*
+- TwisterOS Armbian
 
 ###### *You may still encounter bugs on these operating system(s).
 
