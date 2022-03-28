@@ -236,7 +236,7 @@ def refreshup():
     process = subprocess.Popen(command, stdout=True, stderr=True, shell=True)
 def config():
     global browser
-    config = Window(app, bg="darkgrey", title="Thunder - Configuration", height=750, width=600)
+    config = Window(app, bg="darkgrey", title="Thunder - Configuration", height=760, width=600)
     choosecol = Text(config, text="Choose the window's color: (Restart Required)")
     def blue_color():
         color_choice = "darkblue"
@@ -290,12 +290,14 @@ def config():
             browser = "firefox"
         if browserchoice.value == "Firefox ESR":
             browser = "firefox-esr"
+        if browserchoice.value == "Default":
+            browser = "x-www-browser"
         print("New Browser: "+browser)
         boom = open(home_path+"/.thunder/browser.cfg", "w")
         boom.write("[Browser]\n")
         boom.write("NM = "+browser)
         boom.close()
-    browserchoice = ButtonGroup(config, options=["Chromium", "Firefox", "Firefox ESR"], selected="Chromium", command=browswer)
+    browserchoice = ButtonGroup(config, options=["Chromium", "Firefox", "Firefox ESR", "Default"], selected="Chromium", command=browswer)
     justanote = Text(config, text="The selected browser at config startup does not represent your choice.")
     def makeitsmall():
         smally = open(home_path+"/.thunder/size.cfg","w")
