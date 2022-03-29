@@ -1,8 +1,9 @@
 #!/bin/bash
 cd ${HOME}/Thunder/emulators/pcsxr
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
-if tr -d '\0' </proc/device-tree/compatible | grep -q "rk3399"; then
-./pcsxr-rk3399
-else
+#if tr -d '\0' </proc/device-tree/compatible | grep -q "rk3399"; then
+#./pcsxr-rk3399
+#else
+#./pcsxr
+#fi
 ./pcsxr
-fi
