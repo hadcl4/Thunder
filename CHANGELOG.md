@@ -1,5 +1,8 @@
 # Thunder Changelong
 
+### 3/31/22
+- `GALLIUM_HUD` can now easily be used through Thunder!
+
 ### 3/25/22
 - Flatpak support
 
