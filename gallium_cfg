@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+from guizero import *
+import sys
+user = sys.argv[1]
+home = "/home/"+user
+def cfg_write():
+    f = open(home+"/.thunder/gallium.cfg","w")
+    f.write(input.value)
+    f.close()
+    info("Thunder - GALLIUM_HUD - Info","Please restart Thunder for changes to take effect.")
+app = App(title="Thunder - GALLIUM_HUD Configuration")
+Text(app, text="Please enter the arguments for GALLIUM_HUD:")
+input = TextBox(app, text="Arguments...")
+Text(app, text='If unsure put "simple,fps".')
+PushButton(app, text="Submit", command=cfg_write)
+app.display()

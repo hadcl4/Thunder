@@ -42,5 +42,8 @@ echo "New Version:"
 thunder-cli --version
 cp gallium.cfg ${HOME}/.thunder/gallium.cfg
 fi
+if diff ${HOME}/.thunder/mesa.cfg mesa.cfg | grep "GALLIUM_HUD" ; then
+python3 patches/update_v1.0.7.py $USER
+fi
 echo "Closing in 10 seconds. Please reopen Thunder for changes to take effect."
 sleep 10s
