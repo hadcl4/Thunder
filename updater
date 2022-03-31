@@ -35,5 +35,12 @@ if [[ $thunderversion == "STABLE v1.0.6" ]]; then
 echo "Updating thunder-cli..."
 sudo cp thunder-cli /usr/local/bin/thunder-cli
 fi
+if [[ $thunderversion == "STABLE v1.0.7" ]]; then
+echo "Updating thunder-cli..."
+sudo cp thunder-cli /usr/local/bin/thunder-cli
+echo "New Version:"
+thunder-cli --version
+cp gallium.cfg ${HOME}/.thunder/gallium.cfg
+fi
 echo "Closing in 10 seconds. Please reopen Thunder for changes to take effect."
 sleep 10s
