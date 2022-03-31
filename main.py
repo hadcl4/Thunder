@@ -82,6 +82,10 @@ mesaread = mesaconfigur.read(home_path+"/.thunder/mesa.cfg")
 mesa32 = mesaconfigur.get("mesa","ARMHF")
 mesa64 = mesaconfigur.get("mesa","ARM64")
 mesaon = mesaconfigur.get("mesa","ON")
+galliumon = mesaconfigur.get("mesa","GALLIUM_HUD")
+gallium = open(home_path+"/.thunder/gallium.cfg", "r")
+gallium_args = gallium.read()
+gallium.close()
 
 configy = ConfigParser()
 
@@ -236,7 +240,7 @@ def refreshup():
     process = subprocess.Popen(command, stdout=True, stderr=True, shell=True)
 def config():
     global browser
-    config = Window(app, bg="darkgrey", title="Thunder - Configuration", height=760, width=600)
+    config = Window(app, bg="darkgrey", title="Thunder - Configuration", height=800, width=600)
     choosecol = Text(config, text="Choose the window's color: (Restart Required)")
     def blue_color():
         color_choice = "darkblue"
@@ -334,8 +338,12 @@ def config():
     def mesaconfig():
         command = f'x-terminal-emulator -e "/home/'+user+'/Thunder/thunder-cli --mesaconfig"'
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    def galliumconfig():
+        command = f'/usr/bin/python3 /home/'+user+'/Thunder/gallium_cfg '+user
+        process = subprocess.Popen(command, stdout=True, stderr=True, shell=True)
     Text(config, text="Other Settings:")
     PushButton(config, text="Mesa", command=mesaconfig)
+    PushButton(config, text="GALLIUM_HUD", command=galliumconfig)
 def system():
     system = Window(app, bg="darkgrey", title="Thunder - System Info")
     textsys = Text(system, text="System Info (config.txt):")
@@ -434,41 +442,45 @@ def mgba():
 # The functions for running games
 def gamerun(title, path, runner):
     print('Thunder is now running '+title+'...')
+    if galliumon == "ON":
+        args = "GALLIUM_HUD="+gallium_args
+    if galliumon == "OFF":
+        args = ""
     if runner == "mednafen":
         if mesaon == "0":
-            command = f'mednafen '+path
+            command = f''+args+' mednafen '+path
         if mesaon == "1":
-            command = f'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' mednafen '+path
+            command = f''+args+' LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' mednafen '+path
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     if runner == "steam":
         if mesaon == "0":
-            command = f'steam steam://rungameid/'+path
+            command = f''+args+' steam steam://rungameid/'+path
         if mesaon == "1":
-            command = f'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' steam steam://rungameid/'+path
+            command = f''+args+' LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' steam steam://rungameid/'+path
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     if runner == "linux":
         if mesaon == "0":
-            command = f''+path
+            command = f''+args+' '+path
         if mesaon == "1":
-            command = f'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' '+path
+            command = f''+args+' LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' '+path
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     if runner == "wine":
         if mesaon == "0":
-            command = f'wine '+path
+            command = f''+args+' wine '+path
         if mesaon == "1":
-            command = f'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' wine '+path
+            command = f''+args+' LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' wine '+path
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     if runner == "browser":
         if mesaon == "0":
-            command = f''+browser+' '+path
+            command = f''+args+' '+browser+' '+path
         if mesaon == "1":
-            command = f'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' '+browser+' '+path
+            command = f''+args+' LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' '+browser+' '+path
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     if runner == "flatpak":
         if mesaon == "0":
-            command = f'flatpak run '+path
+            command = f''+args+'flatpak run '+path
         if mesaon == "1":
-            command = f'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' flatpak run '+path
+            command = f''+args+'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' flatpak run '+path
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
         
 def onerun():
