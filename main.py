@@ -478,9 +478,9 @@ def gamerun(title, path, runner):
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     if runner == "flatpak":
         if mesaon == "0":
-            command = f''+args+'flatpak run '+path
+            command = f''+args+' flatpak run '+path
         if mesaon == "1":
-            command = f''+args+'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' flatpak run '+path
+            command = f''+args+' LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'+mesa64+':'+mesa32+' flatpak run '+path
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
         
 def onerun():
