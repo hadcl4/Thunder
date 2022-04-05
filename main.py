@@ -332,7 +332,7 @@ def config():
         newswrite.write("n")
         newswrite.close()
         restart()
-    newstext = Text(config, text="Should Thunder download news at startup?")
+    newstext = Text(config, text="Should Thunder download news at startup (Restart Required)?")
     newsyes = PushButton(config, text="Yes", command=newson)
     newsno = PushButton(config, text="No", command=newsno)
     def mesaconfig():
@@ -342,8 +342,8 @@ def config():
         command = f'/usr/bin/python3 /home/'+user+'/Thunder/gallium_cfg '+user
         process = subprocess.Popen(command, stdout=True, stderr=True, shell=True)
     Text(config, text="Other Settings:")
-    PushButton(config, text="Mesa", command=mesaconfig)
-    PushButton(config, text="GALLIUM_HUD", command=galliumconfig)
+    PushButton(config, text="Mesa (Restart Required)", command=mesaconfig)
+    PushButton(config, text="GALLIUM_HUD (Restart Required)", command=galliumconfig)
 def system():
     system = Window(app, bg="darkgrey", title="Thunder - System Info")
     textsys = Text(system, text="System Info (config.txt):")
