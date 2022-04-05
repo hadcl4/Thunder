@@ -264,6 +264,8 @@ rm -f ~/.thunder/browser.cfg
 cp browser.cfg ~/.thunder/browser.cfg
 rm -f ~/.thunder/mesa.cfg
 cp mesa.cfg ~/.thunder/mesa.cfg
+rm -f ~/.thunder/gallium.cfg
+cp gallium.cfg ~/.thunder/gallium.cfg
 fi
 if [[ $firsttimes =~ [Nn] ]]; then
 echo "Got it."
