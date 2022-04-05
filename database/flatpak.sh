@@ -1,11 +1,7 @@
 export software_installed=$(command -v gnome-software)
 export flatpak_installed=$(command -v flatpak)
-if echo $flatpak_install | grep "flatpak"; then
-export flat_pak="installed"
-fi
-if [[ $flat_pak == "installed" ]]; then
+if [[ $flatpak_installed == "/usr/bin/flatpak" ]]; then
 echo "Flatpak already installed..."
-exit
 else
 sudo apt install flatpak
 if [[ $software_installed == "/usr/bin/gnome-software" ]]; then
