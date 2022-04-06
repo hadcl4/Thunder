@@ -24,7 +24,7 @@ function --help {
 }
 
 function --version {
-    echo "STABLE v1.0.8"
+    echo "STABLE v1.0.9"
 }
 
 function --gui {
@@ -128,13 +128,24 @@ function --addgame {
 }
 
 function --reset {
+    cd ~
     echo "Resetting configs for Thunder..."
     rm -f .thunder/page.cfg
     rm -f .thunder/config.cfg
     rm -f .thunder/library.cfg
+    rm -f .thunder/size.cfg
+    rm -f .thunder/mesa.cfg
+    rm -f .thunder/gallium.cfg
+    rm -f .thunder/news.cfg
+    rm -f .thunder/browser.cfg
     cp Thunder/page.cfg .thunder/page.cfg
     cp Thunder/config.cfg .thunder/config.cfg
     cp Thunder/library.cfg .thunder/library.cfg
+    cp Thunder/size.cfg .thunder/size.cfg
+    cp Thunder/mesa.cfg .thunder/mesa.cfg
+    cp Thunder/gallium.cfg .thunder/gallium.cfg
+    cp Thunder/news.cfg .thunder/news.cfg
+    cp Thunder/browser.cfg .thunder/browser.cfg
 }
 
 function --install {
