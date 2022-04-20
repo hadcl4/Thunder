@@ -47,5 +47,9 @@ if [[ $thunderversion == "STABLE v1.0.8" ]]; then
 echo "Updating thunder-cli..."
 sudo cp thunder-cli /usr/local/bin/thunder-cli
 fi
+if [[ $thunderversion == "STABLE v1.0.9" ]]; then
+echo "Updating thunder-cli..."
+sudo cp thunder-cli /usr/local/bin/thunder-cli
+fi
 echo "Closing in 10 seconds. Please reopen Thunder for changes to take effect."
 sleep 10s

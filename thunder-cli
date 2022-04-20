@@ -21,10 +21,11 @@ function --help {
     echo "thunder-cli --log | View Thunder's log. Useful for debugging. Logging must be enabled by editing 'start'. Instructions are included there."
     echo "thunder-cli --update | Update Thunder (both GUI and CLI)"
     echo "thunder-cli --dev | Enter devmode"
+    echo "thunder-cli --clear-cache | Clear web browser cache"
 }
 
 function --version {
-    echo "STABLE v1.0.9"
+    echo "STABLE v1.1.0"
 }
 
 function --gui {
@@ -34,7 +35,7 @@ function --gui {
 function --setup {
     read -p "Enter the name of the game you wish to setup (or to view a list enter 'viewlist'), hit enter without an argument to exit: " setupgame
     if [[ $setupgame == "viewlist" ]] ;then
-    cd ~/Thunder/database; ls
+    cd ~/Thunder/database; ls *.sh
     --setup
     else
     cd ~/Thunder/database
@@ -198,6 +199,13 @@ function --mesaconfig {
     nano ${HOME}/.thunder/mesa.cfg
 }
 
+function --clear-cache {
+    echo "Clearing cache..."
+    rm -rf ${HOME}/.cache/main.py
+    rm -rf ${HOME}/.cache/thunderwebhelper
+    rm -rf ${HOME}/.cache/viewdoc
+}
+
 if [[ "$1" == "--help" ]] ;then
     --help
 fi
@@ -251,4 +259,7 @@ if [[ "$1" == "--dev" ]] ;then
 fi
 if [[ "$1" == "--mesaconfig" ]]; then
    --mesaconfig
+fi
+if [[ "$1" == "--clear-cache" ]]; then
+   --clear-cache
 fi

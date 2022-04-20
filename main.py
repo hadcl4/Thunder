@@ -240,7 +240,7 @@ def refreshup():
     process = subprocess.Popen(command, stdout=True, stderr=True, shell=True)
 def config():
     global browser
-    config = Window(app, bg="darkgrey", title="Thunder - Configuration", height=800, width=600)
+    config = Window(app, bg="darkgrey", title="Thunder - Configuration", height=850, width=600)
     choosecol = Text(config, text="Choose the window's color: (Restart Required)")
     def blue_color():
         color_choice = "darkblue"
@@ -344,6 +344,7 @@ def config():
     Text(config, text="Other Settings:")
     PushButton(config, text="Mesa (Restart Required)", command=mesaconfig)
     PushButton(config, text="GALLIUM_HUD (Restart Required)", command=galliumconfig)
+    PushButton(config, text="Clear Web Browser Cache", command=clear_cache)
 def system():
     system = Window(app, bg="darkgrey", title="Thunder - System Info")
     textsys = Text(system, text="System Info (config.txt):")
@@ -387,6 +388,10 @@ def sysinfo():
 def setup():
     command = f'x-terminal-emulator -e "/home/$USER/Thunder/thunder-cli --setup"'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+def clear_cache():
+    command = f'/usr/local/bin/thunder-cli --clear-cache'
+    process = subprocess.Popen(command, stdout=True, stderr=True, shell=True)
+    info("Thunder - Clear Cache", "Web browser cache has been cleared.")
 def restartgameadd():
     app.destroy()
     print("Restarting Thunder...")
