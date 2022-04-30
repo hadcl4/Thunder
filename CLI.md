@@ -51,6 +51,8 @@ This section will go over more advanced features:
 
 > --dev
 
+> --clear-cache
+
 ### `--sysinfo`
 View your system info from the CLI (including all the data neofetch gets, your Vulkan version, OpenGLES and OpenGL version, CPU architecture, and IP address).
 ### `--cloud`
@@ -63,3 +65,5 @@ View Thunder's log. Needs to be enabled by uncommenting a certain part of `start
 Update Thunder (both GUI and CLI).
 ### `--dev`
 Enter development mode. This what you'll use when developing Thunder.
+### `--clear-cache`
+Clear web browser cache.
