@@ -370,6 +370,9 @@ def thunderclient():
 def itchchat():
     command = f''+browser+' https://itch.io/community'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+def thunder_chat():
+    command = f''+browser+' https://github.com/hadcl4/Thunder/discussions'
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def setup_game():
     command = f'x-terminal-emulator -e "/home/$USER/Thunder/thunder-cli --setup"'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
@@ -788,7 +791,7 @@ menubar = MenuBar(app,
                       [ ["Configuration", config], ["Update Thunder", thunder_update], ["System Info (config.txt)", system], ["System Info (all platforms)", sysinfo], ["Game Database", game_collection], ["ThunderStore", store], ["Web Browser", webbrowser], ["Exit Thunder", exit_thunder] ],
                       [ ["Add Game...", addgame_all], ["Add Source...", source_add], ["Run Setup...", setup_game], ["Create Desktop Shortcut...", create_short], ["Browse Games on Steam", steambrowser], ["Browse Games on Itch.io", itchbrowser], ["Browse Games on GOG.com", gogbrowser] ],
                       [ ["Help", manual], ["License", lic], ["Docs (less)", thunder_docs], ["Docs (html)", thunder_doc_html], ["View Thunder on GitHub", viewrepo] ],
-                      [ ["ThunderCloud Data Transfer", cloud_cli], ["Steam Chat", thunderclient], ["Itch.io Community", itchchat] ], # This needs some work!
+                      [ ["ThunderCloud Data Transfer", cloud_cli], ["Steam Chat", thunderclient], ["Itch.io Community", itchchat], ["Thunder Discussions", thunder_chat] ], # This needs some work!
                       [ ["Dolphin-Emu", dolphin_emu], ["PCSX Reloaded", pcsxr], ["melonDS_Pi", melonds], ["Mednagui", mednagui], ["PPSSPP", ppsspp], ["mGBA", mgba] ]
                   ])
 
