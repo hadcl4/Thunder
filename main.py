@@ -557,7 +557,9 @@ def webbrowser():
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
 def exit_thunder():
-    exit()
+    shutdown = yesno("Thunder - Exit", "Are you sure you want to exit?")
+    if shutdown == True:
+        exit()
 
 def store():
     def teeinstall():
