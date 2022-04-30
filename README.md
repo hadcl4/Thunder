@@ -49,6 +49,10 @@ As installing Box86, Box64, Steam, and Mednafen would be complicated, we made an
 ```
 cd ~; git clone https://github.com/hadcl4/Thunder
 ```
+If you have `gh` installed, you can run this instead of the command above. But don't run both!:
+```
+cd ~; gh repo clone hadcl4/Thunder
+```
 Then run this to start the setup:
 ```
 cd Thunder && chmod +x setup && ./setup
