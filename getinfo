@@ -1,0 +1,3 @@
+#!/bin/bash
+argument=$(thunder-cli --version)
+python3 ${HOME}/Thunder/getinfo.py "$argument"

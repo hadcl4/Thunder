@@ -564,6 +564,10 @@ def exit_thunder():
     if shutdown == True:
         exit()
 
+def build_info():
+    command = f'bash '+home_path+'/Thunder/getinfo'
+    process = subprocess.Popen(command,stdout=True,stderr=True,shell=True)
+
 def store():
     def teeinstall():
         command = f'x-terminal-emulator -e "/home/$USER/Thunder/thunder-cli --install teeworlds"'
@@ -790,7 +794,7 @@ menubar = MenuBar(app,
                   options=[
                       [ ["Configuration", config], ["Update Thunder", thunder_update], ["System Info (config.txt)", system], ["System Info (all platforms)", sysinfo], ["Game Database", game_collection], ["ThunderStore", store], ["Web Browser", webbrowser], ["Exit Thunder", exit_thunder] ],
                       [ ["Add Game...", addgame_all], ["Add Source...", source_add], ["Run Setup...", setup_game], ["Create Desktop Shortcut...", create_short], ["Browse Games on Steam", steambrowser], ["Browse Games on Itch.io", itchbrowser], ["Browse Games on GOG.com", gogbrowser] ],
-                      [ ["Help", manual], ["License", lic], ["Docs (less)", thunder_docs], ["Docs (html)", thunder_doc_html], ["View Thunder on GitHub", viewrepo] ],
+                      [ ["Help", manual], ["License", lic], ["Docs (less)", thunder_docs], ["Docs (html)", thunder_doc_html], ["View Thunder on GitHub", viewrepo], ["Build Info",build_info] ],
                       [ ["ThunderCloud Data Transfer", cloud_cli], ["Steam Chat", thunderclient], ["Itch.io Community", itchchat], ["Thunder Discussions", thunder_chat] ], # This needs some work!
                       [ ["Dolphin-Emu", dolphin_emu], ["PCSX Reloaded", pcsxr], ["melonDS_Pi", melonds], ["Mednagui", mednagui], ["PPSSPP", ppsspp], ["mGBA", mgba] ]
                   ])
