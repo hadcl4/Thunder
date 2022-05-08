@@ -1,4 +1,3 @@
-You can now load custom Mesa installs!
+You can now easily see your build info!
 
-Select Thunder->Configuration->Other->Mesa
-to use it!
+Select About->Build Info to view it!
