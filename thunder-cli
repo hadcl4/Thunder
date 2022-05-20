@@ -22,10 +22,11 @@ function --help {
     echo "thunder-cli --update | Update Thunder (both GUI and CLI)"
     echo "thunder-cli --dev | Enter devmode"
     echo "thunder-cli --clear-cache | Clear web browser cache"
+    echo "thunder-cli --run | Run a .thunder file"
 }
 
 function --version {
-    echo "STABLE v1.1.1"
+    echo "STABLE v1.1.2"
 }
 
 function --gui {
@@ -206,6 +207,10 @@ function --clear-cache {
     rm -rf ${HOME}/.cache/viewdoc
 }
 
+function --run {
+    python3 ${HOME}/Thunder/read.py $2
+}
+
 if [[ "$1" == "--help" ]] ;then
     --help
 fi
@@ -262,4 +267,7 @@ if [[ "$1" == "--mesaconfig" ]]; then
 fi
 if [[ "$1" == "--clear-cache" ]]; then
    --clear-cache
+fi
+if [[ "$1" == "--run" ]]; then
+   --run "$@"
 fi

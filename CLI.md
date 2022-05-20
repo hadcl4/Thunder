@@ -22,6 +22,8 @@ This will list off all of `thunder-cli`'s functions. In this section we'll go ov
 
 > --addgame
 
+> --run
+
 ### `--gui`
 Launch Thunder's graphical user interface (X11 or Wayland required).
 ### `--setup`
@@ -36,6 +38,8 @@ Get a list of commands to use with `thunder-cli`.
 View Thunder's version.
 ### `--addgame`
 Add a game to Thunder's library (only affects gui).
+### `--run`
+Run a `.thunder` file. A `.thunder` file is basically an entry to the configuration file used in `thunder-cli --addgame`, however only one game can be stored in a `.thunder` file. The main difference is that, instead of a section being referred to by a number (like `[15]`), `.thunder` files begin with `[Game]`. Other than that, everything else is the same.
 ## Advanced Features
 This section will go over more advanced features:
 
