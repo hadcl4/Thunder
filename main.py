@@ -568,6 +568,24 @@ def build_info():
     command = f'bash '+home_path+'/Thunder/getinfo'
     process = subprocess.Popen(command,stdout=True,stderr=True,shell=True)
 
+def run_cart():
+    try:
+        file = open(home_path+"/.cache/thunder_cart","r").read()
+        command = f'thunder-cli --run '+file
+        process = subprocess.Popen(command,stdout=True,stderr=True,shell=True)
+    except:
+        info("Thunder - ERROR!!", "No cartridge inserted!")
+
+def ins_cart():
+    cart = select_file(title="Thunder - Cartridge Select", folder=home_path, filetypes=[["Thunder Cartridge", "*.thunder"]], save=False)
+    file = open(home_path+"/.cache/thunder_cart","w").write(cart)
+    file.close()
+
+def ejct_cart():
+    command = f'rm '+home_path+'/.cache/thunder_cart'
+    process = subprocess.Popen(command,stdout=True,stderr=True,shell=True)
+    info("Thunder - Message", "Cartridge ejected!")
+
 def store():
     def teeinstall():
         command = f'x-terminal-emulator -e "/home/$USER/Thunder/thunder-cli --install teeworlds"'
@@ -790,11 +808,12 @@ if section == "4":
         setup_cave = PushButton(app, text="Setup", command=setup, align="left", image=home_path+"/Thunder/setup.gif", height=64, width=64)
 
 menubar = MenuBar(app,
-                  toplevel=["Thunder", "Add", "About", "Cloud", "Emulators"],
+                  toplevel=["Thunder", "Add", "About", "Games", "Cloud", "Emulators"],
                   options=[
                       [ ["Configuration", config], ["Update Thunder", thunder_update], ["System Info (config.txt)", system], ["System Info (all platforms)", sysinfo], ["Game Database", game_collection], ["ThunderStore", store], ["Web Browser", webbrowser], ["Exit Thunder", exit_thunder] ],
                       [ ["Add Game...", addgame_all], ["Add Source...", source_add], ["Run Setup...", setup_game], ["Create Desktop Shortcut...", create_short], ["Browse Games on Steam", steambrowser], ["Browse Games on Itch.io", itchbrowser], ["Browse Games on GOG.com", gogbrowser] ],
                       [ ["Help", manual], ["License", lic], ["Docs (less)", thunder_docs], ["Docs (html)", thunder_doc_html], ["View Thunder on GitHub", viewrepo], ["Build Info",build_info] ],
+                      [ ["Run Cartridge", run_cart], ["Insert Cartridge", ins_cart], ["Eject Cartridge", ejct_cart] ],
                       [ ["ThunderCloud Data Transfer", cloud_cli], ["Steam Chat", thunderclient], ["Itch.io Community", itchchat], ["Thunder Discussions", thunder_chat] ], # This needs some work!
                       [ ["Dolphin-Emu", dolphin_emu], ["PCSX Reloaded", pcsxr], ["melonDS_Pi", melonds], ["Mednagui", mednagui], ["PPSSPP", ppsspp], ["mGBA", mgba] ]
                   ])
