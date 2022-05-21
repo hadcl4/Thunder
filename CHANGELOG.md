@@ -1,5 +1,9 @@
 # Thunder Changelong
 
+### 4/21/22
+- Virtual Cartridges!
+- Link to Wiki in Docs
+
 ### 3/31/22
 - `GALLIUM_HUD` can now easily be used through Thunder!
 

@@ -28,6 +28,8 @@ This will list off all of <code>thunder-cli</code>'s functions. In this section 
 <p>--version</p>
 
 <p>--addgame</p>
+
+<p>--run</p>
 </blockquote>
 
 <h3><code>--gui</code></h3>
@@ -58,6 +60,10 @@ This will list off all of <code>thunder-cli</code>'s functions. In this section 
 
 <p>Add a game to Thunder's library (only affects gui).</p>
 
+<h3><code>--run</code></h3>
+
+<p>Run a <code>.thunder</code> file. A <code>.thunder</code> file is basically an entry to the configuration file used in <code>thunder-cli --addgame</code>, however only one game can be stored in a <code>.thunder</code> file. The main difference is that, instead of a section being referred to by a number (like <code>[15]</code>), <code>.thunder</code> files begin with <code>[Game]</code>. Other than that, everything else is the same.</p>
+
 <h2>Advanced Features</h2>
 
 <p>This section will go over more advanced features:</p>
@@ -74,6 +80,8 @@ This will list off all of <code>thunder-cli</code>'s functions. In this section 
 <p>--update</p>
 
 <p>--dev</p>
+
+<p>--clear-cache</p>
 </blockquote>
 
 <h3><code>--sysinfo</code></h3>
@@ -99,3 +107,7 @@ This will list off all of <code>thunder-cli</code>'s functions. In this section 
 <h3><code>--dev</code></h3>
 
 <p>Enter development mode. This what you'll use when developing Thunder.</p>
+
+<h3><code>--clear-cache</code></h3>
+
+<p>Clear web browser cache.</p>
