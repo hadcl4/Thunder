@@ -50,6 +50,11 @@ Finally, add the game with "linux" as the platform and the ID as the path to the
 Select Add->Create Desktop Shortcut. Thunder will then use the same data as the config it reads for a game to create a desktop shortcut. You can choose which game it will create a shortcut for. On some systems (e.g. Ubuntu) you will have to right click the shortcut, select Properties, then allow the file to be executed.
 ## Updating Thunder and `thunder-cli`
 Select Thunder->Update Thunder. A terminal window will appear, and will pull from GitHub the latest version of Thunder. Please make sure you update frequently, or else you might have bugs because of how Thunder's version is checked. For example with v1.0.1, as of the time that this section is being written the latest is v1.0.3, so it will skip v1.0.2, so you'll need to manually apply the v1.0.2 patch. We're working on a way to fix this though, but if you have trouble just create an issue on the GitHub repo. 
+## What's all of this about "Virtual Cartridges"?!
+Please see the following link:
+
+https://github.com/hadcl4/Thunder/wiki/Virtual-Cartridges
+
 ## Platforms
 This is a list of platforms supported by Thunder:
 
