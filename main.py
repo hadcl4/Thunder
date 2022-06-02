@@ -240,7 +240,7 @@ def refreshup():
     process = subprocess.Popen(command, stdout=True, stderr=True, shell=True)
 def config():
     global browser
-    config = Window(app, bg="darkgrey", title="Thunder - Configuration", height=850, width=600)
+    config = Window(app, bg="darkgrey", title="Thunder - Configuration", height=750, width=600)
     choosecol = Text(config, text="Choose the window's color: (Restart Required)")
     def blue_color():
         color_choice = "darkblue"
@@ -266,10 +266,17 @@ def config():
         c.write(color_choice)
         c.close()
         restart()
-    blue = PushButton(config, text="Blue", command=blue_color)
-    grey = PushButton(config, text="Grey", command=grey_color)
-    red = PushButton(config, text="Red", command=red_color)
-    black = PushButton(config, text="Black", command=black_color)
+    def apply():
+        if selection.value == "Blue":
+            blue_color()
+        if selection.value == "Grey":
+            grey_color()
+        if selection.value == "Red":
+            red_color()
+        if selection.value == "Black":
+            black_color()
+    selection = Combo(config, options=["Blue","Grey","Red","Black"])
+    PushButton(config,text="Apply and Restart",command=apply)
     fullscreeny = Text(config, text="Choose if Thunder should be in fullscreen (Restart Required):")
     def fullyes():
         fullchoice = "y"
