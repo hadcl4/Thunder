@@ -40,6 +40,8 @@ View Thunder's version.
 Add a game to Thunder's library (only affects gui).
 ### `--run`
 Run a `.thunder` file. A `.thunder` file is basically an entry to the configuration file used in `thunder-cli --addgame`, however only one game can be stored in a `.thunder` file. The main difference is that, instead of a section being referred to by a number (like `[15]`), `.thunder` files begin with `[Game]`. Other than that, everything else is the same.
+### '--web'
+Run Thunder's web browser.
 ## Advanced Features
 This section will go over more advanced features:
 
