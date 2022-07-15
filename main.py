@@ -377,6 +377,9 @@ def thunderclient():
 def itchchat():
     command = f''+browser+' https://itch.io/community'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+def yt_channel():
+    command = f''+browser+' https://www.youtube.com/channel/UCxn5YE1Fi6cF0jRSCbEd-Iw'
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 def thunder_chat():
     command = f''+browser+' https://github.com/hadcl4/Thunder/discussions'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
@@ -821,7 +824,7 @@ menubar = MenuBar(app,
                       [ ["Add Game...", addgame_all], ["Add Source...", source_add], ["Run Setup...", setup_game], ["Create Desktop Shortcut...", create_short], ["Browse Games on Steam", steambrowser], ["Browse Games on Itch.io", itchbrowser], ["Browse Games on GOG.com", gogbrowser] ],
                       [ ["Help", manual], ["License", lic], ["Docs (less)", thunder_docs], ["Docs (html)", thunder_doc_html], ["View Thunder on GitHub", viewrepo], ["Build Info",build_info] ],
                       [ ["Run Cartridge", run_cart], ["Insert Cartridge", ins_cart], ["Eject Cartridge", ejct_cart] ],
-                      [ ["ThunderCloud Data Transfer", cloud_cli], ["Steam Chat", thunderclient], ["Itch.io Community", itchchat], ["Thunder Discussions", thunder_chat] ], # This needs some work!
+                      [ ["ThunderCloud Data Transfer", cloud_cli], ["Steam Chat", thunderclient], ["Itch.io Community", itchchat], ["Thunder Discussions", thunder_chat], ["Hadcl4 Studios Youtube Channel",yt_channel] ],
                       [ ["Dolphin-Emu", dolphin_emu], ["PCSX Reloaded", pcsxr], ["melonDS_Pi", melonds], ["Mednagui", mednagui], ["PPSSPP", ppsspp], ["mGBA", mgba] ]
                   ])
 
