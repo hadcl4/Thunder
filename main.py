@@ -605,14 +605,18 @@ def ejct_cart():
 def cart_config():
     global cart_path
     def cc_change():
+        global cart_path
         file = open(home_path+"/.thunder/cart.config","w")
         file.write(cc_path.value)
         file.close()
+        cart_path = cc_path.value
         ccart.destroy()
     def cc_default():
+        global cart_path
         file = open(home_path+"/.thunder/cart.config","w")
         file.write(home_path)
         file.close()
+        cart_path = home_path
         ccart.destroy()
     ccart = Window(app, title="Thunder - Cartridges Config",bg="white")
     Text(ccart, text="Cartridge Select's Start Location:", color="black")
