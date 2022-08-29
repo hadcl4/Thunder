@@ -28,6 +28,12 @@ user = sys.argv[1]
 section = sys.argv[2]
 startupmessageif = sys.argv[3]
 home_path = expanduser("~%s" % user)
+try:
+    fcart = open(home_path+"/.thunder/cart.config","r")
+    cart_path = fcart.read()
+    fcart.close()
+except:
+    cart_path = home_path
 print("")
 print('Thunder currently running under user "'+user+'".')
 # Fetch the chosen theme at boot
@@ -587,7 +593,7 @@ def run_cart():
         info("Thunder - ERROR!!", "No cartridge inserted!")
 
 def ins_cart():
-    cart = select_file(title="Thunder - Cartridge Select", folder=home_path, filetypes=[["Thunder Cartridge", "*.thunder"]], save=False)
+    cart = select_file(title="Thunder - Cartridge Select", folder=cart_path, filetypes=[["Thunder Cartridge", "*.thunder"]], save=False)
     file = open(home_path+"/.cache/thunder_cart","w").write(cart)
     file.close()
 
@@ -595,6 +601,25 @@ def ejct_cart():
     command = f'rm '+home_path+'/.cache/thunder_cart'
     process = subprocess.Popen(command,stdout=True,stderr=True,shell=True)
     info("Thunder - Message", "Cartridge ejected!")
+
+def cart_config():
+    global cart_path
+    def cc_change():
+        file = open(home_path+"/.thunder/cart.config","w")
+        file.write(cc_path.value)
+        file.close()
+        ccart.destroy()
+    def cc_default():
+        file = open(home_path+"/.thunder/cart.config","w")
+        file.write(home_path)
+        file.close()
+        ccart.destroy()
+    ccart = Window(app, title="Thunder - Cartridges Config",bg="white")
+    Text(ccart, text="Cartridge Select's Start Location:", color="black")
+    cc_path = TextBox(ccart, text="Enter path here...",width=25)
+    PushButton(ccart, text="Change Path",command=cc_change)
+    PushButton(ccart, text="Use Default (Home Path)",command=cc_default)
+    Text(ccart, text="Current Cartridge Path: "+cart_path, color="black")
 
 def store():
     def teeinstall():
@@ -823,7 +848,7 @@ menubar = MenuBar(app,
                       [ ["Configuration", config], ["Update Thunder", thunder_update], ["System Info (config.txt)", system], ["System Info (all platforms)", sysinfo], ["Game Database", game_collection], ["ThunderStore", store], ["Web Browser", webbrowser], ["Exit Thunder", exit_thunder] ],
                       [ ["Add Game...", addgame_all], ["Add Source...", source_add], ["Run Setup...", setup_game], ["Create Desktop Shortcut...", create_short], ["Browse Games on Steam", steambrowser], ["Browse Games on Itch.io", itchbrowser], ["Browse Games on GOG.com", gogbrowser] ],
                       [ ["Help", manual], ["License", lic], ["Docs (less)", thunder_docs], ["Docs (html)", thunder_doc_html], ["View Thunder on GitHub", viewrepo], ["Build Info",build_info] ],
-                      [ ["Run Cartridge", run_cart], ["Insert Cartridge", ins_cart], ["Eject Cartridge", ejct_cart] ],
+                      [ ["Run Cartridge", run_cart], ["Insert Cartridge", ins_cart], ["Eject Cartridge", ejct_cart], ["Cartridge Config",cart_config] ],
                       [ ["ThunderCloud Data Transfer", cloud_cli], ["Steam Chat", thunderclient], ["Itch.io Community", itchchat], ["Thunder Discussions", thunder_chat], ["Hadcl4 Studios Youtube Channel",yt_channel] ],
                       [ ["Dolphin-Emu", dolphin_emu], ["PCSX Reloaded", pcsxr], ["melonDS_Pi", melonds], ["Mednagui", mednagui], ["PPSSPP", ppsspp], ["mGBA", mgba] ]
                   ])
