@@ -1,5 +1,8 @@
 # Thunder Changelong
 
+### 10/8/22
+- You can now configure games individually!
+
 ### 4/21/22
 - Virtual Cartridges!
 - Link to Wiki in Docs
