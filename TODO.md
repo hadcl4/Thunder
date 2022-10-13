@@ -37,12 +37,15 @@ The code is added. However many games are now on the internet or in HTML5 format
 - Chromium
 - Firefox
 - Firefox ESR
-### Allow Games to be Configured Individually `Not Done Yet`
+### Allow Games to be Configured Individually `Complete!`
 This is a feature I've wanted for a long time (in fact it's the whole reason the empty `configs` folder exists in `.thunder`), however I haven't gotten a working solution yet. Mainly I want the following options:
 - OpenGL version to run the game with (by default it will use your current OpenGL version)
 - If the game should be ran by another executable (so games that use emulators other than mednafen can run)
 - Any arguments for the game (I haven't found any games that need this, however there most likely are games out there that do)
 - Any environment variables (for example, if a game needs Box86/64 to have Dynarec off to run correctly)
+
+You can now configure games individually using virtual cartridges.
+
 ### Add an Updater `Done`
 Now that Thunder is on GitHub, instead of making the user manually running `git pull` and possible breaking their install in the process, it would be much more convenient to have an updater. How? Not sure yet.
 ### Add Redream `Not Done Yet`
