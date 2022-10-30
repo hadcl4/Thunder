@@ -632,8 +632,12 @@ def store():
     def aatainstall():
         command = f'x-terminal-emulator -e "/home/$USER/Thunder/thunder-cli --install armagetronad"'
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    def pitch_games():
+        command = f''+browser+' https://itch.io/games/tag-raspberry-pi'
+        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     storefront = Window(app, title="Thunder - Store", bg="white", width=1000)
     storefrontname = Text(storefront, text="Store", font="Ubuntu", color="black", size=50)
+    PushButton(storefront, text="Check out games supporting Raspberry Pi on Itch.io!", align="top",command=pitch_games)
     teeworldsinstore = Picture(storefront, image=home_path+"/Thunder/database/teeworlds.png", align="left", height=120, width=120)
     teeworldsinstoretwo = PushButton(storefront, text="Install", align="left", command=teeinstall)
     teeworldsdescription = Text(storefront, text="| 2D Platform Shooter", align="left")
