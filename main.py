@@ -226,7 +226,7 @@ def refreshdown():
     if section == "3":
         command = f'export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"; cd ~/Thunder && python3 main.py $USER 4 0 > ~/.thunder/thunder.log'
     if section == "4":
-        command = f'export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"; cd ~/Thunder && python3 main.py $USER 5 0 > ~/.thunder/thunder.log'
+        command = f'export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"; cd ~/Thunder && python3 main.py $USER 4 0 > ~/.thunder/thunder.log'
     if section == "5":
         command = f'export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"; cd ~/Thunder && python3 main.py $USER 5 0 > ~/.thunder/thunder.log'
     process = subprocess.Popen(command, stdout=True, stderr=True, shell=True)
