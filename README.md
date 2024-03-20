@@ -171,6 +171,6 @@ Also, if you find any bugs, please report them! I want to make Thunder the best 
 
 ----
 
-###### Thunder is not in any way associated with Valve (and because of that, Steam), GOG, Itch, or any other mentioned storefronts or companies. Thunder is also not associated with the creators of any games featured in the store or the database.
+###### Thunder is not in any way associated with Valve (and because of that, Steam), GOG, Itch, or any other mentioned storefronts or companies. Thunder is also not associated with the creators of any games featured in the store or the database. Thunder is not associated with the creators of any emulators included.
 
 ----
